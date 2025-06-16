@@ -1,0 +1,33 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "closest_golden_partner_match_name": "Rocketta GmbH",
+  "match_score": "High",
+  "match_rationale_features": [
+    "Custom software development for established businesses",
+    "Leveraging AI and automation to enhance existing services",
+    "Focus on Microsoft technologies and cloud solutions",
+    "Providing training and support services"
+  ],
+  "phone_sales_line": "It seems like you're focused on providing cutting-edge custom software solutions while exploring the potential of AI.  We recently helped a similar firm specializing in custom applications integrate AI-driven enhancements to their existing services, significantly boosting their efficiency and client value. I don't suppose you'd be open to a brief chat about how they achieved this?",
+  "other_notable_matches": [
+    {
+      "partner_name": "DEVIM - Software Solutions UG",
+      "score": "Medium",
+      "common_features": [
+        "Custom software development",
+        "Focus on user-centric applications"
+      ]
+    },
+    {
+      "partner_name": "Noor Vision GmbH",
+      "score": "Medium",
+      "common_features": [
+        "Digital process optimization",
+        "Focus on cloud solutions"
+      ]
+    }
+  ]
+}
+```

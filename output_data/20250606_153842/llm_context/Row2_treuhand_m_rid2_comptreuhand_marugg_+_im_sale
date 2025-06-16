@@ -1,0 +1,40 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "closest_golden_partner_match_name": "KanzleiPartner GmbH",
+  "match_score": "High",
+  "match_rationale_features": [
+    "Focus on digitalization and automation of processes for tax/accounting firms",
+    "Expertise in DATEV integration and client management solutions",
+    "Directly addresses the challenges of modernizing traditional accounting practices"
+  ],
+  "phone_sales_line": "It seems like many accounting firms are struggling to keep up with the increasing demands for digitalization, especially with DATEV integration. We recently helped a firm in a similar position streamline their client onboarding and data processing workflows, saving them countless hours and improving client satisfaction. I don't suppose you'd be open to a quick chat about how we could help you achieve similar results?",
+  "other_notable_matches": [
+    {
+      "partner_name": "Digitalagentur1",
+      "score": "Medium",
+      "common_features": [
+        "Digitalization and automation expertise",
+        "Focus on process optimization for law firms and businesses",
+        "DATEV specialization"
+      ]
+    },
+    {
+      "partner_name": "Steuerköpfe.de",
+      "score": "Medium",
+      "common_features": [
+        "Focus on tax/accounting sector",
+        "Provides digital content and resources for Kanzleien"
+      ]
+    },
+     {
+      "partner_name": "DIGI-BEL",
+      "score": "Medium",
+      "common_features": [
+        "Focus on digitizing document exchange and communication for tax consultancies"
+      ]
+    }
+  ]
+}
+```

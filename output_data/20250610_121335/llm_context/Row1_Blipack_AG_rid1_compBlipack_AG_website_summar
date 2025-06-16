@@ -1,0 +1,16 @@
+```json
+{
+  "original_url": "[Placeholder for the original URL - this will be filled programmatically, do not generate it]",
+  "summary": "Blipack AG is a Swiss system supplier of packaging machines and packaging materials. With over 50 years of experience, they offer a wide range of products including blister machines, skin machines, roll punches, stretch wrappers, strapping machines, air cushion machines, paper cushion machines, shrink machines, and cardboard sealing machines. They also provide packaging materials such as adhesive tapes, cardboard packaging, protective materials, bags, films, and strapping. Blipack AG aims to optimize customers' packaging processes and ensure safe and efficient goods handling. They develop, build, and sell packaging machines and offer complete system solutions, including accessories like printed carrier cartons and blister films. The company also offers custom printed advertising bags through Werbetaschen Schweiz, a division of Blipack AG. The Blipack Group has multiple distribution centers in Europe and provides services like contract packaging, shrink wrapping, tablet packaging, blister packaging, presentation packaging, and printed shipping cartons.",
+  "extracted_company_name_from_summary": "Blipack AG",
+  "key_topics_mentioned": [
+    "Verpackungsmaschinen",
+    "Verpackungsmaterial",
+    "Blistermaschinen",
+    "Skinmaschinen",
+    "Stretchwickler",
+    "Umreifungsmaschinen",
+    "Werbetaschen"
+  ]
+}
+```

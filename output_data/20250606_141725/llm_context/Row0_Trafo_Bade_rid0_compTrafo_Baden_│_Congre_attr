@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Hospitality",
+  "industry_category": "Events and Conferences",
+  "products_services_offered": ["Event Spaces", "Catering Packages", "Accommodation", "Technical Equipment", "Event Planning Support"],
+  "usp_key_selling_points": ["Budget Control", "Culinary Excellence", "Simplified Event Planning", "Versatile Event Spaces"],
+  "customer_target_segments": ["Businesses (Conferences)", "Wedding Planners", "Private Individuals (Birthdays)", "Administrative Professionals"],
+  "customer_target_segments_category": ["Corporate", "Private Individuals", "Administrative Professionals"],
+  "business_model": "Venue rental and event services",
+  "business_model_category": "Venue/Event Services",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": null,
+  "website_clarity_notes": "Business model and target groups are clearly presented in the summary."
+}
+```

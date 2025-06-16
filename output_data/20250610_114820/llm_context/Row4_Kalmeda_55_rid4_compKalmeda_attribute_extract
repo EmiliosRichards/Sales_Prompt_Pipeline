@@ -1,0 +1,32 @@
+```json
+{
+  "input_summary_url": "[Placeholder for the original URL of the company - this will be filled programmatically, do not generate it. Your focus is on the attributes below based on the summary.]",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": false,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Digital Health",
+  "products_services_offered": [
+    "Mobile tinnitus therapy app (DiGA)",
+    "Cognitive behavioral therapy for tinnitus",
+    "Personalized therapy",
+    "Relaxation techniques",
+    "Coping strategies"
+  ],
+  "usp_key_selling_points": [
+    "Clinically validated",
+    "Guideline-compliant",
+    "Reimbursed by statutory health insurance in Germany",
+    "Developed by ENT doctors and psychologists",
+    "Addresses inner attitude towards tinnitus"
+  ],
+  "customer_target_segments": [
+    "Tinnitus patients",
+    "Individuals with chronic tinnitus"
+  ],
+  "business_model": "Prescription-based mobile therapy app",
+  "company_size_indicators_text": "Listed as a digital health application and reimbursed by all statutory health insurance companies in Germany.",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "Mobile tinnitus therapy app (DiGA)",
+  "website_clarity_notes": "The business model and target audience are clearly communicated."
+}
+```

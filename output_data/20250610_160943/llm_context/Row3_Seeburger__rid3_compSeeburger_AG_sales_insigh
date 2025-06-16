@@ -1,0 +1,15 @@
+```json
+{
+  "match_score": "High",
+  "match_rationale_features": [
+    "Offers B2B/EDI integration solutions.",
+    "Focuses on cloud integration services.",
+    "Targets a wide range of industries including automotive, consumer goods, logistics, financial services, and healthcare.",
+    "Provides integration solutions applicable to IIoT."
+  ],
+  "phone_sales_line": "I was reviewing your comprehensive integration solutions, especially your work in cloud-based B2B/EDI offerings, and it reminded me of another partner working to streamline complex data flows for the automotive sector. Though focused on manufacturing logistics rather than pure integration, they cater to similar enterprise clients needing to exchange complex data sets with their partners, and together we substantially improved their process automation. Would it be unreasonable to briefly discuss how we achieved this, and see if a similar outcome could benefit your team?",
+  "matched_partner_name": "RODIAS GmbH",
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null
+}
+```

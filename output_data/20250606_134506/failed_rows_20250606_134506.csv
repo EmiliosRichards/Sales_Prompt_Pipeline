@@ -1,0 +1,3 @@
+log_timestamp,input_row_identifier,CompanyName,GivenURL,stage_of_failure,error_reason,error_details,Associated_Pathful_Canonical_URL
+2025-06-06T13:45:09.112849,0,Trafo Baden │ Congress. Hotels. Catering.,http://www.trafobaden.ch,LLM_Summarization_Failed,Failed to generate website summary.,"{""raw_response"": ""Error: Prompt template file not found: Contact_Pipeline/prompts/website_summarizer_prompt.txt""}",
+2025-06-06T13:45:13.569786,1,OTTO PARTNER ARCHITEKTEN AG,http://www.ottopartner.ch,LLM_Summarization_Failed,Failed to generate website summary.,"{""raw_response"": ""Error: Prompt template file not found: Contact_Pipeline/prompts/website_summarizer_prompt.txt""}",

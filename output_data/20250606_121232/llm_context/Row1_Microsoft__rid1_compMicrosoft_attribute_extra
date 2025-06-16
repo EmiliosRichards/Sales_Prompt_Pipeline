@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Education Technology",
+  "industry_category": "EdTech / SaaS",
+  "products_services_offered": ["Microsoft Teams for Education", "Microsoft 365 Education", "Office 365 Education", "Video Conferencing", "Chat", "Assignments", "Class Materials", "AI-powered learning tools", "Administrative tools", "Productivity Apps (Word, Excel, PowerPoint, OneNote)", "Copilot Chat"],
+  "usp_key_selling_points": ["Enhanced collaboration and communication", "Personalized learning with AI", "Integrated platform for various educational needs", "Equitable learning environments"],
+  "customer_target_segments": ["Schools", "K-12 Education", "Higher Education Institutions"],
+  "customer_target_segments_category": ["Education (B2B)"],
+  "business_model": "SaaS subscriptions",
+  "business_model_category": "SaaS",
+  "company_size_indicators_text": "Microsoft is a large, multinational technology company.",
+  "company_size_category_inferred": "Large Enterprise",
+  "innovation_level_indicators_text": "Summary mentions AI-powered tools and Copilot Chat, indicating a focus on innovation.",
+  "website_clarity_notes": "The summary clearly outlines the products and their target audience within the education sector."
+}
+```

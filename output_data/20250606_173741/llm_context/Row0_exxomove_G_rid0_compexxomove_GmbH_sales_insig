@@ -1,0 +1,13 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "match_type": "Multiple",
+  "matched_partner_names": ["CareMates / Kuidado", "HospiChef UG (haftungsbeschränkt)"],
+  "matched_one_liners": ["Provides a SaaS platform for care facilities with digital registration, AI-supported nursing assessments, and automated notifications.", "Offers a digital menu ordering system for clinics, enabling patient ordering via personal devices and automating order processing."],
+  "match_score": "High",
+  "match_rationale_features": ["Targets the healthcare sector", "Offers digital solutions", "Focuses on improving efficiency and patient care"],
+  "phone_sales_line": "I've been reviewing your website, and your commitment to increasing independence for users with mobility limitations through innovative assistive devices is truly inspiring. We've recently helped several companies in the healthcare technology space streamline their operations and enhance patient experiences through digital solutions. Would it be worthwhile to share some of their success stories and explore potential synergies with your work at Exxomove?",
+  "prioritized_partner_name": null
+}
+```

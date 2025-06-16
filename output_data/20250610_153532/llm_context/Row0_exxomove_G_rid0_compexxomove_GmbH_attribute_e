@@ -1,0 +1,31 @@
+```json
+{
+  "input_summary_url": "[Placeholder for the original URL of the company - this will be filled programmatically, do not generate it. Your focus is on the attributes below based on the summary.]",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": false,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Assistive Technology",
+  "products_services_offered": [
+    "BATEO Roboterarm",
+    "CARBONHAND bionic hand orthosis"
+  ],
+  "usp_key_selling_points": [
+    "Enhances independence and quality of life",
+    "Lightweight and easy to integrate with existing wheelchair controls (BATEO)",
+    "Augments grip strength (CARBONHAND)",
+    "Intuitive control",
+    "Clinically proven improvements in grip strength and hand functionality"
+  ],
+  "customer_target_segments": [
+    "Individuals with limited arm and hand mobility",
+    "Individuals with Arthrogryposis multiplex congenita",
+    "Individuals with high spinal cord injuries",
+    "Individuals with advanced muscular dystrophies"
+  ],
+  "business_model": "Direct sales and partnerships with distributors and therapists; consultations and product testing opportunities",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": "CARBONHAND uses sensors and artificial tendons to augment grip strength.",
+  "website_clarity_notes": "The summary clearly communicates the business model and target group."
+}
+```

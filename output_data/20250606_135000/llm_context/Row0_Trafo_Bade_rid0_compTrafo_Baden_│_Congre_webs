@@ -1,0 +1,16 @@
+```json
+{
+  "original_url": null,
+  "summary": "Trafo Baden is a congress center in Baden, Switzerland, offering versatile event spaces for various occasions, from weddings and conferences to birthdays. They provide 14 different catering packages, accommodation options with their 3* and 4* hotels, and in-house culinary services led by Executive Chef Dave Otto.  They emphasize budget control and high-quality culinary experiences. Trafo Baden also partners with organizations like Executive Support and World Administrators Alliance (WAA) to host events and training programs for administrative professionals, including \"The Empower Hour\" and courses like ACEA and MDA.  They are a platinum partner of IMA Worldwide and a member of ICCA.",
+  "extracted_company_name_from_summary": "Trafo Baden",
+  "key_topics_mentioned": [
+    "Event planning",
+    "Catering",
+    "Accommodation",
+    "Conferences",
+    "Weddings",
+    "Training programs",
+    "Administrative professionals"
+  ]
+}
+```

@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Hospitality",
+  "industry_category": "Events and Conferences",
+  "products_services_offered": ["Event Spaces", "Catering Packages", "Accommodation", "Administrative Professional Support", "Networking Events"],
+  "usp_key_selling_points": ["Versatile event spaces", "14 different catering packages", "Adaptable to different budgets", "High-quality culinary experiences", "Adjacent hotel accommodations", "Support for administrative professionals"],
+  "customer_target_segments": ["Businesses", "Event Planners", "Administrative Professionals", "Individuals (weddings, birthdays)"],
+  "customer_target_segments_category": ["B2B", "B2C"],
+  "business_model": "Venue rental and event services",
+  "business_model_category": "Hospitality / Venue Rental",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": "Partnerships with organizations like WAA and IMA suggest a focus on professional development within the administrative field.",
+  "website_clarity_notes": "The summary clearly outlines the services and target audience, including both B2B and B2C segments."
+}
+```

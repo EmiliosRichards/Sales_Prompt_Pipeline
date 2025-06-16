@@ -1,0 +1,2 @@
+log_timestamp,input_row_identifier,CompanyName,GivenURL,stage_of_failure,error_reason,error_details,Associated_Pathful_Canonical_URL
+2025-06-06T12:12:32.641979,0,Google,https://www.google.com,Scraping_RobotsDisallowed,Scraper status: RobotsDisallowed,"{""pathful_canonical_url"": null, ""true_base_domain"": null}",

@@ -1,0 +1,11 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "closest_golden_partner_match_name": null,
+  "match_score": null,
+  "match_rationale_features": [],
+  "phone_sales_line": "We understand that you specialize in staffing and recruiting, particularly within the construction and healthcare sectors, and offer services like temporary staffing, permanent placement, and payroll management.  While we don't have a perfect Golden Partner match currently, we'd be happy to discuss how our solutions can streamline your HR processes and help you focus on your core business.",
+  "other_notable_matches": []
+}
+```

@@ -1,0 +1,21 @@
+```json
+{
+  "original_url": null,
+  "summary": "Apple is a technology company that designs, develops, and sells consumer electronics, computer software, and online services. Its key hardware products include the iPhone, Mac, iPad, Apple Watch, Apple Vision Pro, and AirPods.  Apple also offers a range of software and services, such as iOS, macOS, watchOS, Apple TV+, Apple Music, and iCloud. AppleCare+ extends warranty coverage for Apple products and provides accidental damage protection.",
+  "extracted_company_name_from_summary": "Apple",
+  "key_topics_mentioned": [
+    "iPhone",
+    "Mac",
+    "iPad",
+    "Apple Watch",
+    "Apple Vision Pro",
+    "AirPods",
+    "AppleCare+",
+    "iOS",
+    "macOS",
+    "Apple TV+",
+    "Apple Music",
+    "iCloud"
+  ]
+}
+```

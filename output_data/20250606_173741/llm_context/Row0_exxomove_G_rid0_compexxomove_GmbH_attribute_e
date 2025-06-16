@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": false,
+  "target_group_size_assessment": "Appears Small",
+  "industry": "Medical Devices",
+  "industry_category": "Healthcare",
+  "products_services_offered": ["BATEO robotic arm", "CARBONHAND bionic glove", "Consultations"],
+  "usp_key_selling_points": ["Increased independence for users", "SoftTouch biocompatible fingers (BATEO)", "Integration with wheelchair controls (BATEO)", "Enhanced grip strength and endurance (CARBONHAND)", "Microprocessor-controlled and sensor-based (CARBONHAND)", "Clinically proven effectiveness (CARBONHAND)"],
+  "customer_target_segments": ["Individuals with upper extremity mobility limitations", "Individuals with weakened hands"],
+  "customer_target_segments_category": ["Healthcare (B2C)"],
+  "business_model": "Direct sales of assistive medical devices",
+  "business_model_category": "Medical Device Sales",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": "Robotic arm and bionic glove technology, clinical studies mentioned",
+  "website_clarity_notes": "Clear description of products and target audience."
+}
+```

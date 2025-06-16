@@ -1,0 +1,27 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "match_type": "Multiple",
+  "matched_partner_names": [
+    "CareMates / Kuidado",
+    "HospiChef UG (haftungsbeschränkt)",
+    "Medlytics GmbH"
+  ],
+  "matched_one_liners": [
+    "A SaaS startup offering digital registration forms, AI-supported nursing anamnesis, and automated notifications for healthcare facilities.",
+    "A startup providing a digital menu ordering system for clinics, featuring real-time communication and automated order processing.",
+    "An AI-driven healthcare technology company offering early warning systems for hospitals to detect acute kidney failure, delirium risks, and monitor patient glucose metabolism."
+  ],
+  "match_score": "High",
+  "match_rationale_features": [
+    "Focus on digital health solutions",
+    "Targets healthcare professionals and/or patients",
+    "Emphasizes process automation and/or data-driven insights",
+    "Operates in the B2B healthcare space"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it's clear how dedicated you are to providing a clinically proven and personalized CBT approach to tinnitus therapy.  It's striking how closely your strategy aligns with several other digital health firms we've partnered with. They shared your commitment to leveraging technology to improve patient care, and in each case, our collaboration significantly enhanced their market penetration and patient engagement. Would it be unreasonable to explore how we helped them achieve those results, and see if there's something valuable we could offer your team?",
+    "follow_up_question": null,
+  "objection_handling": null
+}
+```

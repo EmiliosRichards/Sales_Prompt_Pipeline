@@ -1,0 +1,14 @@
+```json
+{
+  "analyzed_company_url": "[Placeholder for the original URL - this will be filled programmatically, do not generate it]",
+  "analyzed_company_attributes": "[Placeholder for the Target Company Attributes JSON - this will be filled programmatically, do not generate it]",
+  "matched_partner_name": "PrimeBlister",
+  "match_score": "High",
+  "match_rationale_features": [
+    "Automated blistering solutions for pharmacies and nursing homes",
+    "Secure and error-free medication dispensing",
+    "Sustainable blister packaging (including plastic-free blister cards)"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it stood out how strongly you're positioned in assistive devices for individuals with impaired arm and hand function. Your approach reminds me of another company we recently supported; they were equally dedicated to improving quality of life through innovative devices, and together, we significantly optimized their medication workflows with automated solutions. Would it be unreasonable to explore how we achieved that and whether something similar could apply to your team?"
+}
+```

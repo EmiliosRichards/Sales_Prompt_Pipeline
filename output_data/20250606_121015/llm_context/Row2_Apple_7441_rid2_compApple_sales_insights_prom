@@ -1,0 +1,80 @@
+Your primary task is to analyze the provided [Target Company Attributes JSON] and a [List of Golden Partner Summaries]. Based on this, you will identify the closest matching Golden Partner, provide a match score and rationale, and generate a tailored phone sales pitch for the Target Company. Return a single, valid JSON object. Do not include any conversational preamble, summaries, or any text whatsoever outside of this JSON structure. Your response must begin with '{' and end with '}'.
+
+**Inputs:**
+1.  **Target Company Attributes:** A JSON object detailing the attributes of the company to be analyzed.
+2.  **Golden Partner Summaries:** A list of concise summaries for pre-defined "Golden Partners".
+
+**Tasks to Perform:**
+1.  **Compare:** Analyze the `[Target Company Attributes JSON]` and compare it against each summary in the `[List of Golden Partner Summaries]`.
+2.  **Identify Closest Match:** Determine which Golden Partner is the closest match or most relevant for comparison to the Target Company.
+3.  **Score Match:** Provide a `match_score` for this closest match (e.g., an integer from 0 to 10, where 10 is a strong match, or a string like "High", "Medium", "Low").
+4.  **Rationale & Features:** List the key `match_rationale_features` (as a list of strings) that make the Target Company similar to the identified closest Golden Partner, or explain the relevance of the comparison.
+5.  **Generate Sales Line:** Based *only* on the `[Target Company Attributes JSON]`, craft a compelling 1-2 sentence `phone_sales_line` that could be used when calling the Target Company. This sales line should highlight aspects of their profile that align with potential needs or interests.
+6.  **Other Notable Matches (Optional):** If there are other Golden Partners that are also notably similar (but not the primary match), you can list them in `other_notable_matches`. Each item in this list should be a dictionary with 'partner_name', 'score', and 'common_features'. If none, provide an empty list.
+
+
+The JSON output MUST conform to the following structure (ensure all fields are present, using null or empty lists where appropriate if information cannot be determined):
+{
+  "analyzed_company_url": "[Placeholder for the original URL - this will be filled programmatically, do not generate it]",
+  "analyzed_company_attributes": "[Placeholder for the Target Company Attributes JSON - this will be filled programmatically, do not generate it]",
+  "closest_golden_partner_match_name": "Name of Closest Golden Partner or null",
+  "match_score": "Score (e.g., 8 or 'High') or null",
+  "match_rationale_features": ["Feature 1 that matches", "Reason for relevance", "..."],
+  "phone_sales_line": "Your compelling 1-2 sentence sales pitch here.",
+  "other_notable_matches": [
+    {"partner_name": "Another Golden Partner", "score": "Alternative Score", "common_features": ["Shared aspect 1"]}
+  ]
+}
+
+Remember, the entire response must be ONLY the JSON object.
+The "analyzed_company_url" and "analyzed_company_attributes" fields in the example output structure are placeholders to show the full expected schema; your LLM response should generate the other fields based on the comparison and analysis.
+
+[Target Company Attributes JSON]:
+{
+  "input_summary_url": "https://www.apple.com",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": false,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Consumer Electronics",
+  "industry_category": "Technology Hardware & Software",
+  "products_services_offered": [
+    "iPhone",
+    "Mac",
+    "iPad",
+    "Apple Watch",
+    "Apple Vision Pro",
+    "AirPods",
+    "iOS",
+    "macOS",
+    "watchOS",
+    "Apple TV+",
+    "Apple Music",
+    "iCloud",
+    "AppleCare+"
+  ],
+  "usp_key_selling_points": [],
+  "customer_target_segments": [
+    "Consumers"
+  ],
+  "customer_target_segments_category": [
+    "B2C"
+  ],
+  "business_model": "Product sales and subscription services",
+  "business_model_category": "Retail / E-commerce",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Large Enterprise",
+  "innovation_level_indicators_text": "Designs, develops, and sells consumer electronics, computer software, and online services.",
+  "website_clarity_notes": "Business model and target audience are clearly articulated in the summary."
+}
+
+[List of Golden Partner Summaries]:
+1. Partner data not available or insufficient for summary.
+2. Partner data not available or insufficient for summary.
+3. Partner data not available or insufficient for summary.
+4. Partner data not available or insufficient for summary.
+5. Partner data not available or insufficient for summary.
+6. Partner data not available or insufficient for summary.
+7. Partner data not available or insufficient for summary.
+8. Partner data not available or insufficient for summary.
+9. Partner data not available or insufficient for summary.
+10. Partner data not available or insufficient for summary.

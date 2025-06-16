@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Small",
+  "industry": "Architecture",
+  "industry_category": "Architecture & Planning",
+  "products_services_offered": ["Residential Architecture", "Service Sector Architecture", "Cultural Building Architecture", "Educational Building Architecture", "Neighborhood Planning", "Landscape Architecture"],
+  "usp_key_selling_points": ["Client Relationships", "Personnel Expertise"],
+  "customer_target_segments": [],
+  "customer_target_segments_category": [],
+  "business_model": "Service-oriented; Project-based consulting",
+  "business_model_category": "Consulting / Project-Based",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": null,
+  "website_clarity_notes": "Business model is clear (project-based architecture services). Target audience is not explicitly stated but can be inferred as clients needing architectural services (likely businesses and organizations)."
+}
+```

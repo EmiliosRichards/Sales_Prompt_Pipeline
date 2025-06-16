@@ -1,0 +1,16 @@
+```json
+{
+  "original_url": null,
+  "summary": "Treuhand Marugg + Imsand AG is a Swiss fiduciary company offering a comprehensive suite of services for both businesses and private individuals.  With six locations across five cantons, they emphasize personal contact and have a team of over 60 employees.  Their services include founding, tax consulting, accounting, personnel administration, international business, auditing, restructuring, succession planning, retirement planning, inheritance, and real estate. They cater to a range of clients, from SMEs to large corporations, and prioritize understanding individual needs and long-term success.  The company publishes a client magazine, \"à jour,\" and offers tools like an Excel Lohntool and information on Säule 3a (Swiss pension plan).  They have a strong online presence with contact information and online appointment scheduling.",
+  "extracted_company_name_from_summary": "Treuhand Marugg + Imsand AG",
+  "key_topics_mentioned": [
+    "Tax Consulting",
+    "Accounting",
+    "Auditing",
+    "Succession Planning",
+    "Real Estate",
+    "Pension Planning",
+    "Business Consulting"
+  ]
+}
+```

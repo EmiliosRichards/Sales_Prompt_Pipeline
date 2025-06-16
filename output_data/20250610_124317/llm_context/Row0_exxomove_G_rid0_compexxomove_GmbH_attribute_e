@@ -1,0 +1,30 @@
+```json
+{
+  "input_summary_url": "[Placeholder for the original URL of the company - this will be filled programmatically, do not generate it. Your focus is on the attributes below based on the summary.]",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Assistive Technology",
+  "products_services_offered": [
+    "BATEO Roboterarm",
+    "CARBONHAND Orthese"
+  ],
+  "usp_key_selling_points": [
+    "Increased independence and freedom for users",
+    "Additional strength and endurance to weak hands",
+    "Improved grip strength and hand functionality",
+    "User-friendliness and easy application"
+  ],
+  "customer_target_segments": [
+    "Individuals with limited arm and hand mobility",
+    "Individuals with Arthrogryposis multiplex congenitas",
+    "Individuals with high spinal cord injuries",
+    "Individuals with advanced muscular dystrophies"
+  ],
+  "business_model": "Direct sales of assistive robotic devices and orthoses to individuals and potentially institutions.",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "Summary emphasizes innovation and user-friendliness in their product design, with features like easy application, washable components (for the Carbonhand), and smart control options.",
+  "website_clarity_notes": "The summary clearly communicates the company's focus and target group. The business model is relatively clear, focusing on providing assistive devices to individuals with mobility impairments."
+}
+```

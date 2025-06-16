@@ -1,0 +1,15 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "closest_golden_partner_match_name": "Denkmal Zukunft GmbH & Co. KG",
+  "match_score": "Medium",
+  "match_rationale_features": [
+    "Focus on future-oriented approaches for traditional businesses",
+    "Consulting and support for organizational development and change management",
+    "Relevance to architecture firms seeking to adapt and thrive"
+  ],
+  "phone_sales_line": "It seems like many architecture firms are looking for ways to stay ahead of the curve in today's rapidly changing market.  We've recently helped a firm, similar to yours in size and focus, navigate a significant organizational shift to embrace new technologies and working models. Would it be a terrible idea to explore how their experience might offer valuable insights for your firm's future?",
+  "other_notable_matches": []
+}
+```

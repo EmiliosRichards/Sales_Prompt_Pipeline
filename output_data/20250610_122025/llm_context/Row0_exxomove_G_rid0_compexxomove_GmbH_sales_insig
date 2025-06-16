@@ -1,0 +1,14 @@
+```json
+{
+  "match_score": "Medium",
+  "match_rationale_features": [
+    "Assistive Technology",
+    "Individuals with limited arm and hand mobility",
+    "Integration of technology"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it stood out how strongly you're positioned in assistive technology for individuals with limited mobility. Your focus on integrating technology reminds me of another company we recently supported; like you, they were dedicated to improving user experience through technology, and together we significantly boosted their sales. Would it be unreasonable to explore how we achieved that and whether something similar could apply to your team?",
+  "matched_partner_name": "Elvari",
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null
+}
+```

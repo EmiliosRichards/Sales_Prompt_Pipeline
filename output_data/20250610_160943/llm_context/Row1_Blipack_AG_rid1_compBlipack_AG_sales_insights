@@ -1,0 +1,14 @@
+```json
+{
+  "match_score": "High",
+  "match_rationale_features": [
+    "Provides packaging machines and materials",
+    "Offers custom solutions tailored to customer requirements",
+    "Targets businesses needing transport packaging, postal packaging, and protective packaging"
+  ],
+  "phone_sales_line": "I was reviewing your comprehensive range of packaging machines and custom solutions for transport, postal, and protective needs, and it reminded me of another recent partner, *Vidify.me*, who are creating packaging solutions, AI-powered explainer video creation; visual content creation; automation solutions for content creation; flexible AI-driven video adaptations and updates; video marketing strategies.. Though focused on digital content and Pharma focus, they cater to similar packaging supply, and together we substantially improved their sales results. Would it be unreasonable to briefly discuss how we achieved this, and see if a similar outcome could benefit your team?",
+  "matched_partner_name": "Vidify.me",
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null
+}
+```

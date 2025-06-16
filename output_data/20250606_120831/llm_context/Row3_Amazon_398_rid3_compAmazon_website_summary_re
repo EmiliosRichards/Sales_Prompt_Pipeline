@@ -1,0 +1,14 @@
+```json
+{
+  "original_url": null,
+  "summary": "Amazon.com is a massive online retailer offering a vast selection of products across various categories, including electronics, clothing, home goods, books, and more.  They cater to a global customer base, emphasizing competitive pricing and convenient shopping.  Amazon also provides services like Prime Video, Music, and Kindle Unlimited, and offers opportunities for sellers and businesses through platforms like Amazon Business and Amazon Web Services.",
+  "extracted_company_name_from_summary": "Amazon.com",
+  "key_topics_mentioned": [
+    "E-commerce",
+    "Retail",
+    "Online Shopping",
+    "Digital Content",
+    "Cloud Services"
+  ]
+}
+```

@@ -1,0 +1,30 @@
+```json
+{
+  "input_summary_url": "[Placeholder for the original URL of the company - this will be filled programmatically, do not generate it. Your focus is on the attributes below based on the summary.]",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": false,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Assistive Technology",
+  "products_services_offered": [
+    "BATEO robot arm",
+    "CARBONHAND bionic hand orthosis"
+  ],
+  "usp_key_selling_points": [
+    "Assist with everyday tasks",
+    "Increase independence",
+    "Provide additional strength and endurance for weak hands",
+    "Improve quality of life"
+  ],
+  "customer_target_segments": [
+    "Individuals with limited arm and hand mobility",
+    "Individuals with muscular dystrophy",
+    "Individuals with high spinal cord injuries",
+    "Individuals with arthrogryposis multiplex congenita"
+  ],
+  "business_model": "Direct sales of assistive devices",
+  "company_size_indicators_text": "Participates in trade shows like REHACARE and REHAB to showcase their products and offer consultations.",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "BATEO robot arm and CARBONHAND bionic hand orthosis",
+  "website_clarity_notes": "The business model and target audience are clearly communicated."
+}
+```

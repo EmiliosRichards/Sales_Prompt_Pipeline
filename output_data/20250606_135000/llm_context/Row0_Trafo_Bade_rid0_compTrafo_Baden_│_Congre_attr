@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Hospitality",
+  "industry_category": "Event Venues / Hospitality",
+  "products_services_offered": ["Event Spaces", "Catering Packages", "Accommodation (3* and 4* hotels)", "Culinary Services", "Training Programs"],
+  "usp_key_selling_points": ["Versatile event spaces", "Budget control", "High-quality culinary experiences", "Partnerships with professional organizations"],
+  "customer_target_segments": ["Corporations (Conferences)", "Wedding Planners", "Individuals (Birthdays)", "Administrative Professionals"],
+  "customer_target_segments_category": ["B2B", "B2C"],
+  "business_model": "Venue rental and hospitality services",
+  "business_model_category": "Venue / Hospitality",
+  "company_size_indicators_text": "Partnerships with international organizations like IMA Worldwide and ICCA suggest a well-established business.",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "null",
+  "website_clarity_notes": "The summary clearly outlines the services and target audiences."
+}
+```

@@ -1,0 +1,32 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "closest_golden_partner_match_name": "KSR Sales Group GmbH",
+  "match_score": "High",
+  "match_rationale_features": [
+    "Both companies focus on B2B services.",
+    "Both offer consulting and training services.",
+    "Both aim to improve business processes and outcomes (TRMI through financial and business consulting, KSR through sales consulting and training)."
+  ],
+  "phone_sales_line": "We've worked with KSR Sales Group GmbH, who, like you, specialize in providing B2B consulting and training services to optimize business performance, and we've helped them achieve significant improvements in their sales processes. We're confident we can do the same for you.",
+  "other_notable_matches": [
+    {
+      "partner_name": "diMarketing & Sales Consulting GmbH",
+      "score": "Medium",
+      "common_features": [
+        "Both focus on B2B consulting and training.",
+        "Both offer services related to sales improvement."
+      ]
+    },
+    {
+      "partner_name": "Balzer & Partner",
+      "score": "Medium",
+      "common_features": [
+        "Both offer external sales management and related services.",
+        "Both target B2B clients."
+      ]
+    }
+  ]
+}
+```

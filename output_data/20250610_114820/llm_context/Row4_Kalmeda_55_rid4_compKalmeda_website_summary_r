@@ -1,0 +1,14 @@
+```json
+{
+  "original_url": "[Placeholder for the original URL - this will be filled programmatically, do not generate it]",
+  "summary": "Kalmeda is a mobile tinnitus therapy app (DiGA) available on prescription. Developed by ENT doctors and psychologists, it offers a clinically validated and guideline-compliant cognitive behavioral therapy approach to reduce tinnitus-related stress. The app is listed as a digital health application and reimbursed by all statutory health insurance companies in Germany. Kalmeda aims to help patients break the cycle of tinnitus by addressing their inner attitude towards the condition. It provides personalized therapy and tools for self-help, including relaxation techniques and coping strategies. The app is designed to be easily accessible and integrated into daily life, offering a convenient and effective way to manage chronic tinnitus.",
+  "extracted_company_name_from_summary": "Kalmeda",
+  "key_topics_mentioned": [
+    "Tinnitus",
+    "Digital Health Application (DiGA)",
+    "Cognitive Behavioral Therapy",
+    "Prescription App",
+    "Chronic Tinnitus"
+  ]
+}
+```

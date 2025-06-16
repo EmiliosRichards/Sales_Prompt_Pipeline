@@ -1,0 +1,44 @@
+```json
+{
+  "input_summary_url": "[Placeholder for the original URL of the company - this will be filled programmatically, do not generate it. Your focus is on the attributes below based on the summary.]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Business Integration Software",
+  "products_services_offered": [
+    "Business Integration Suite (BIS) platform",
+    "Managed File Transfer (MFT)",
+    "B2B/EDI integration",
+    "EAI/A2A integration",
+    "API integration and management",
+    "IIoT integration",
+    "Automation",
+    "AI orchestration",
+    "Cloud integration services",
+    "Consulting",
+    "Training"
+  ],
+  "usp_key_selling_points": [
+    "Connects applications, people, and processes across hybrid architectures",
+    "Flexibility and scalability",
+    "Workflow automation",
+    "Innovation acceleration",
+    "Better alignment between business and IT",
+    "Preconfigured integration flows and reusable assets",
+    "Marketplace for integration content"
+  ],
+  "customer_target_segments": [
+    "Automotive",
+    "Consumer Goods",
+    "Logistics",
+    "Finance",
+    "Energy",
+    "Healthcare"
+  ],
+  "business_model": "Platform provider with integration solutions, services, and training",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "AI orchestration mentioned in summary",
+  "website_clarity_notes": "The business model and target industries are clearly communicated."
+}
+```

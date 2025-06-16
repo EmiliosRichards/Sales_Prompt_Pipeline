@@ -1,0 +1,2 @@
+log_timestamp,input_row_identifier,CompanyName,GivenURL,stage_of_failure,error_reason,error_details,Associated_Pathful_Canonical_URL
+2025-06-06T14:01:39.876551,4,Burning Box SA,http://www.burningbox.ch,RowProcessing_UnhandledException,Unhandled exception in main loop,"{""exception_type"": ""Exception"", ""exception_message"": ""Browser.close: Connection closed while reading from the driver""}",

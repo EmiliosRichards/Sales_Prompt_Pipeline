@@ -1,0 +1,49 @@
+```json
+{
+  "input_summary_url": "[Placeholder for the original URL of the company - this will be filled programmatically, do not generate it. Your focus is on the attributes below based on the summary.]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Fleet Management Solutions",
+  "products_services_offered": [
+    "Telematics",
+    "Auto-controlling solutions",
+    "Tour planning",
+    "Truck tablets",
+    "Camera integration",
+    "Vehicle tracking",
+    "Work time recording",
+    "Tire pressure monitoring",
+    "Remote tachograph download",
+    "Temperature monitoring",
+    "Tracking and tracing",
+    "Tour management",
+    "Store-checker solutions for field services",
+    "FMS data analysis (diesel consumption)",
+    "Process cost accounting"
+  ],
+  "usp_key_selling_points": [
+    "Increase transparency",
+    "Increase safety",
+    "Increase driver motivation",
+    "Customizable cloud-based solutions",
+    "Optimize routes",
+    "Reduce costs",
+    "Improve customer delivery efficiency"
+  ],
+  "customer_target_segments": [
+    "Breweries",
+    "Beverage companies",
+    "Construction logistics",
+    "Fresh food services",
+    "Recycling",
+    "Bakeries",
+    "Vehicle transport"
+  ],
+  "business_model": "Service-oriented; Cloud-based solutions for fleet management",
+  "company_size_indicators_text": "Established in 2000",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "Leverages partnerships, including PRODATIS AG for data reliability and DSGVO compliance, and integrates with platforms like Oracle and HERE.",
+  "website_clarity_notes": "The business model and target group are clearly communicated."
+}
+```

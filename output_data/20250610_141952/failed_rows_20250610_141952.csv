@@ -1,0 +1,2 @@
+log_timestamp,input_row_identifier,CompanyName,GivenURL,stage_of_failure,error_reason,error_details,Associated_Pathful_Canonical_URL
+2025-06-10T14:20:07.018135,0,exxomove GmbH,https://www.exxomove.de/,LLM_AttributeExtraction_Failed,Failed to extract detailed attributes.,"{""raw_response"": ""Error: Configuration error for generation_config - 'AppConfig' object has no attribute 'llm_temperature'""}",

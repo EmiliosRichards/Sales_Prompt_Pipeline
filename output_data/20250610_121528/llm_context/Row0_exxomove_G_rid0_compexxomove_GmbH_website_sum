@@ -1,0 +1,15 @@
+```json
+{
+  "original_url": "[Placeholder for the original URL - this will be filled programmatically, do not generate it]",
+  "summary": "EXXOMOVE GmbH focuses on providing solutions for individuals with limited arm and hand mobility. Their core offerings include the BATEO robot arm, designed to assist with everyday tasks and increase independence, and the CARBONHAND, a bionic hand orthosis that provides additional strength and endurance for weak hands. These products target individuals with conditions such as muscular dystrophy, high spinal cord injuries, or arthrogryposis multiplex congenita. EXXOMOVE aims to improve the quality of life for its users by enabling them to perform daily activities more easily and independently, offering increased self-sufficiency and freedom. They participate in trade shows like REHACARE and REHAB to showcase their products and offer consultations.",
+  "extracted_company_name_from_summary": "EXXOMOVE GmbH",
+  "key_topics_mentioned": [
+    "BATEO robot arm",
+    "CARBONHAND",
+    "Armmobilität",
+    "Handmobilität",
+    "Rehabilitation",
+    "Assistive Technology"
+  ]
+}
+```

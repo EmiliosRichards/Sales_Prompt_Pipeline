@@ -1,0 +1,15 @@
+```json
+{
+  "match_score": "Medium",
+  "match_rationale_features": [
+    "Products_services_offered: Consultations",
+    "Products_services_offered: Trials",
+    "Industry: Assistive Technology",
+    "Customer_target_segments: Individuals with limited arm and hand mobility"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it stood out how strongly you're positioned in assistive technology, offering consultations and trials to individuals with limited arm and hand mobility. Your approach reminds me of another company we recently supported; they were equally dedicated to providing modern care concepts, and together we significantly boosted their client engagement. Would it be unreasonable to explore how we achieved that and whether something similar could apply to your team?",
+  "matched_partner_name": "Health Works",
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null
+}
+```

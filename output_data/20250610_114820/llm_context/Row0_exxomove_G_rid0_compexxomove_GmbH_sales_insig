@@ -1,0 +1,14 @@
+```json
+{
+  "analyzed_company_url": "[Placeholder for the original URL - this will be filled programmatically, do not generate it]",
+  "analyzed_company_attributes": "[Placeholder for the Target Company Attributes JSON - this will be filled programmatically, do not generate it]",
+  "match_score": "Medium",
+  "match_rationale_features": [
+    "Industry: Medical Devices",
+    "Products_services_offered: BATEO® Roboterarm, CARBONHAND® bionic hand orthosis",
+    "Customer_target_segments: Individuals with limited arm and hand mobility, Individuals with arthrogryposis, Individuals with high spinal cord injuries, Individuals with advanced muscular dystrophies",
+    "Business_model: Direct sales of assistive robotic devices"
+  ],
+  "phone_sales_line": "I was reviewing your business model, and it stood out how you directly serve individuals with mobility limitations through advanced robotic devices. Your commitment reminds me of another healthcare company we recently helped; they were similarly focused on delivering innovative solutions directly to patients, and we significantly improved their operational efficiency. Would it be unreasonable to explore how we achieved that and see if there's something valuable we could offer your team?"
+}
+```

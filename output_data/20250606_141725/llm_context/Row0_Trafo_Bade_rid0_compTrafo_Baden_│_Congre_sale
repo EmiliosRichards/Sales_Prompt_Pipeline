@@ -1,0 +1,16 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "closest_golden_partner_match_name": "Tenderwise.io",
+  "match_score": "High",
+  "match_rationale_features": [
+    "Serves B2B clients",
+    "Offers a digital platform solution",
+    "Streamlines complex processes",
+    "Focuses on efficiency and optimization"
+  ],
+  "phone_sales_line": "It seems like providing seamless event planning and maximizing resource utilization are key priorities for Trafobaden. We recently helped a similar venue optimize their booking and vendor management processes through a centralized digital platform, resulting in a 20% increase in booking efficiency. I don't suppose you'd be open to a brief chat about how this approach could potentially benefit Trafobaden?",
+  "other_notable_matches": []
+}
+```

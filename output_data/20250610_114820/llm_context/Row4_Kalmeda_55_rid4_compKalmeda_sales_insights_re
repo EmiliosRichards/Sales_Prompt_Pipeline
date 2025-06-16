@@ -1,0 +1,13 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "match_score": "Medium",
+  "match_rationale_features": [
+    "Healthcare Sector (B2B)",
+    "Mobile tinnitus therapy app (DiGA)",
+    "Reimbursed by statutory health insurance in Germany"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it stood out how you provide a reimbursed mobile therapy app, a unique approach in the digital health sector. Your model reminds me of another healthcare technology company we recently supported; they were similarly focused on delivering innovative, reimbursed solutions, and we helped them streamline their data integration with primary systems. Would it be unreasonable to explore how we achieved that and whether something similar could apply to your team?"
+}
+```

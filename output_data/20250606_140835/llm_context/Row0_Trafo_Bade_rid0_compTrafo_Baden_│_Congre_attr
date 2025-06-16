@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Hospitality",
+  "industry_category": "Events and Conferences",
+  "products_services_offered": ["Event Spaces", "Catering Services", "Technical Support", "Event Packages", "Accommodation (3-star and 4-star hotels)"],
+  "usp_key_selling_points": ["Flexible room options", "Culinary excellence", "On-site and nearby accommodation"],
+  "customer_target_segments": ["Event planners", "Wedding parties", "Conference organizers"],
+  "customer_target_segments_category": ["B2B", "B2C"],
+  "business_model": "Venue rental and event services",
+  "business_model_category": "Hospitality / Venue Rental",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": null,
+  "website_clarity_notes": "Clear description of services and target audience."
+}
+```

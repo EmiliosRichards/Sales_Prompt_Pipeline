@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Financial Services",
+  "industry_category": "Accounting and Auditing",
+  "products_services_offered": ["Founding Services", "Tax Consulting", "Accounting", "Personnel Administration", "International Business Consulting", "Auditing", "Restructuring", "Succession Planning", "Retirement Planning", "Inheritance Services", "Real Estate Consulting"],
+  "usp_key_selling_points": ["Personal Contact", "Comprehensive Suite of Services", "Focus on Long-Term Success", "Understanding Individual Needs"],
+  "customer_target_segments": ["SMEs", "Large Corporations", "Private Individuals"],
+  "customer_target_segments_category": ["SMEs", "Large Enterprises", "Private Clients"],
+  "business_model": "Service-oriented fiduciary services",
+  "business_model_category": "Consulting / Project-Based",
+  "company_size_indicators_text": "Six locations across five cantons and over 60 employees.",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "Online appointment scheduling and online tools like Excel Lohntool are mentioned, suggesting some level of digitalization.",
+  "website_clarity_notes": "The summary clearly outlines the company's services and target audience."
+}
+```

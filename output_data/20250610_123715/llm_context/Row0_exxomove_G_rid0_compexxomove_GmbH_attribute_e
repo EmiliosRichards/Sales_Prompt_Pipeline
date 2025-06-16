@@ -1,0 +1,30 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": false,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Assistive Technology",
+  "products_services_offered": [
+    "BATEO Roboterarm",
+    "CARBONHAND bionic hand orthosis"
+  ],
+  "usp_key_selling_points": [
+    "Restores independence for individuals with limited arm and hand mobility",
+    "Enhances grip strength and endurance",
+    "Intuitive, lightweight, and adaptable design"
+  ],
+  "customer_target_segments": [
+    "Individuals with limited arm and hand mobility",
+    "Individuals with Arthrogryposis multiplex congenitas",
+    "Individuals with high paraplegia",
+    "Individuals with advanced muscular dystrophies",
+    "Individuals with weak hands"
+  ],
+  "business_model": "Direct sales of assistive devices with consultations and partnerships with certified providers.",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "Innovative and effective solutions for hand and arm mobility.",
+  "website_clarity_notes": "The summary clearly describes the business model and target audience."
+}
+```

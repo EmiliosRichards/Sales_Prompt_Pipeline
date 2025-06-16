@@ -1,0 +1,13 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "match_type": "Single",
+  "matched_partner_names": ["MS Company Solutions GmbH"],
+  "matched_one_liners": [],
+  "match_score": "High",
+  "match_rationale_features": ["Personnel placement", "Healthcare sector focus"],
+  "phone_sales_line": "I was reviewing your services, and it's clear your team specializes in personnel placement within the healthcare sector.  This reminds me of another company we recently helped, who, like you, was deeply committed to minimizing employment risks for their clients.  Would you be open to a brief discussion about how we helped them optimize their recruitment process and significantly reduce their time-to-fill?",
+  "notes": null
+}
+```

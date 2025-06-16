@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Software Development",
+  "industry_category": "IT Services",
+  "products_services_offered": ["Custom web applications", "Custom desktop applications", "Custom mobile applications", "First-Broker (insurance portfolio management software)", "Btime (time tracking software)"],
+  "usp_key_selling_points": ["Tailored solutions", "Agile methodologies"],
+  "customer_target_segments": ["Insurance brokers", "Swiss SMEs"],
+  "customer_target_segments_category": ["Financial Services (B2B)", "SMEs"],
+  "business_model": "Custom software development and specialized software products",
+  "business_model_category": "Software Development / IT Services",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": null,
+  "website_clarity_notes": "Business model and target audience are clearly described."
+}
+```

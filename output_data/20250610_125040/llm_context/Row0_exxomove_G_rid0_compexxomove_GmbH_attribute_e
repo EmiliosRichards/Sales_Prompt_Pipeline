@@ -1,0 +1,33 @@
+```json
+{
+  "input_summary_url": "[Placeholder for the original URL of the company - this will be filled programmatically, do not generate it. Your focus is on the attributes below based on the summary.]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Assistive Technology",
+  "products_services_offered": [
+    "BATEO® Roboterarm",
+    "CARBONHAND® Orthese"
+  ],
+  "usp_key_selling_points": [
+    "Enhances independence and quality of life",
+    "Easy integration with wheelchair controls",
+    "Soft-touch fingers for secure gripping",
+    "Amplifies grip strength",
+    "App-based customization (Carbonhand 2.0)"
+  ],
+  "customer_target_segments": [
+    "Individuals with Arthrogryposis multiplex congenita",
+    "Individuals with high spinal cord injuries",
+    "Individuals with advanced muscular dystrophies",
+    "Individuals with general hand weakness",
+    "Healthcare Providers",
+    "Distributors"
+  ],
+  "business_model": "Direct sales and partnerships with distributors and healthcare providers",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": "Highlights the innovative design and functionality of their products, such as the Carbonhand 2.0",
+  "website_clarity_notes": "The summary clearly communicates the business model and target audience."
+}
+```

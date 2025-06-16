@@ -1,0 +1,14 @@
+```json
+{
+  "match_score": "High",
+  "match_rationale_features": [
+    "Industry: Healthcare Technology / HealthTech (SaaS)",
+    "Business Model: SaaS",
+    "Target Audience: Healthcare Sector (B2B)"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it stood out how strongly you're positioned in delivering a mobile tinnitus therapy app (DiGA) to doctors, psychotherapists, and statutory health insurance companies. Your approach reminds me of another SaaS company we recently supported; they were equally dedicated to providing innovative digital solutions in the healthcare sector, and together we significantly boosted their sales. Would it be unreasonable to explore how we achieved that and whether something similar could apply to your team?",
+  "matched_partner_name": "CareMates / Kuidado",
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null
+}
+```

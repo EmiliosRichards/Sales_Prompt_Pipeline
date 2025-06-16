@@ -1,0 +1,17 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "match_type": "Single",
+  "matched_partner_names": ["go.ecoblister GmbH"],
+  "matched_one_liners": [],
+  "match_score": 10,
+  "match_rationale_features": [
+    "Packaging Solutions",
+    "Blister Machines",
+    "Sustainable Packaging"
+  ],
+  "phone_sales_line": "I was reviewing your website and it looks like you specialize in providing a comprehensive range of packaging solutions, including blister machines.  We recently helped another company in the packaging industry implement sustainable, plastic-free blister packs and significantly reduce their material costs. Would it be helpful to share how we achieved those results?",
+  "follow_up_email_content": null
+}
+```

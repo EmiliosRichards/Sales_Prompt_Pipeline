@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": false,
+  "phone_outreach_suitability": false,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Consumer Electronics",
+  "industry_category": "Technology Hardware & Software",
+  "products_services_offered": ["iPhone", "Mac", "iPad", "Apple Watch", "Apple Vision Pro", "AirPods", "iOS", "macOS", "watchOS", "Apple TV+", "Apple Music", "iCloud", "AppleCare+"],
+  "usp_key_selling_points": [],
+  "customer_target_segments": ["Consumers"],
+  "customer_target_segments_category": ["B2C"],
+  "business_model": "Product sales and subscription services",
+  "business_model_category": "Retail / E-commerce",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Large Enterprise",
+  "innovation_level_indicators_text": "Designs, develops, and sells consumer electronics, computer software, and online services.",
+  "website_clarity_notes": "Business model and target audience are clearly articulated in the summary."
+}
+```

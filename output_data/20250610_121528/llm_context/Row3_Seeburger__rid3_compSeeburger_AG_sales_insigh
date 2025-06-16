@@ -1,0 +1,15 @@
+```json
+{
+  "match_score": "High",
+  "match_rationale_features": [
+    "Business Integration Suite (BIS) platform",
+    "B2B/EDI integration",
+    "EAI/A2A integration",
+    "API integration and management"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it stood out how strongly you're positioned in business integration, offering solutions from B2B/EDI to API integration. Your approach reminds me of another company we recently supported; they were equally focused on connecting disparate systems and streamlining data flow, and together we substantially boosted their platform adoption. Would it be unreasonable to explore how we achieved that and whether something similar could apply to your team?",
+  "matched_partner_name": "RODIAS GmbH",
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null
+}
+```

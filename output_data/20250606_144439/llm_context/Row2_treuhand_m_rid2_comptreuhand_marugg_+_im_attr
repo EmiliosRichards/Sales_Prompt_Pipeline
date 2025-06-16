@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Medium",
+  "industry": "Financial Services",
+  "industry_category": "Accounting and Auditing",
+  "products_services_offered": ["Tax consulting", "Accounting", "Payroll administration", "Auditing", "Business succession planning"],
+  "usp_key_selling_points": ["Personal contact", "Tailored solutions"],
+  "customer_target_segments": ["Businesses", "Individuals"],
+  "customer_target_segments_category": ["B2B", "B2C"],
+  "business_model": "Service-oriented fiduciary services",
+  "business_model_category": "Consulting / Project-Based",
+  "company_size_indicators_text": "Six locations across five cantons.",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": null,
+  "website_clarity_notes": "Clear description of services and target audience."
+}
+```

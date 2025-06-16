@@ -1,0 +1,13 @@
+```json
+{
+  "analyzed_company_url": null,
+  "analyzed_company_attributes": null,
+  "match_score": "Medium",
+  "match_rationale_features": [
+    "Optimization of customer packaging processes",
+    "Efficient and secure goods handling",
+    "System supplier of packaging machines and materials"
+  ],
+  "phone_sales_line": "I was reviewing your services, and it stood out how strongly you're positioned as a system supplier optimizing packaging processes for efficient and secure goods handling. Your approach reminds me of another company we recently supported; they were equally dedicated to streamlining manufacturing support, and together we significantly boosted their sales. Would it be unreasonable to explore how we achieved that and whether something similar could apply to your team?"
+}
+```

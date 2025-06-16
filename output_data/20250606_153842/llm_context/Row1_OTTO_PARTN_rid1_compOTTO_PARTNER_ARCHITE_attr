@@ -1,0 +1,20 @@
+```json
+{
+  "input_summary_url": "[PROGRAMMATIC_PLACEHOLDER]",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Small",
+  "industry": "Architecture",
+  "industry_category": "Construction & Architecture",
+  "products_services_offered": ["architectural services"],
+  "usp_key_selling_points": [],
+  "customer_target_segments": [],
+  "customer_target_segments_category": [],
+  "business_model": "Service-oriented",
+  "business_model_category": "Consulting / Project-Based",
+  "company_size_indicators_text": null,
+  "company_size_category_inferred": "Unknown/Not Specified",
+  "innovation_level_indicators_text": null,
+  "website_clarity_notes": "Business model is clear (architectural services). Target audience not specified."
+}
+```

@@ -1,0 +1,15 @@
+```json
+{
+  "original_url": "[Placeholder for the original URL - this will be filled programmatically, do not generate it]",
+  "summary": "SEEBURGER offers a Business Integration Suite (BIS) platform that connects applications, people, and processes across hybrid architectures, cloud environments, and on-premises systems. The company provides solutions for Managed File Transfer (MFT), B2B/EDI integration, EAI/A2A integration, API integration and management, IIoT integration, automation, and KI-Orchestrierung. SEEBURGER's platform is designed for flexibility and scalability, enabling workflow automation, innovation acceleration, and better alignment between business and IT. They offer cloud integration services for MFT, B2B/EDI, API, SAP Global Trade Services (GTS), E-Invoicing, and the energy sector. SEEBURGER also provides industry-specific solutions for sectors like automotive, consumer goods, logistics, finance, energy, and healthcare. The company emphasizes seamless connectivity across the entire ecosystem with preconfigured integration flows and reusable assets. They also offer services and training, including support, academy training, and consulting. SEEBURGER iPaaS is available on AWS, providing a secure and scalable integration platform.",
+  "extracted_company_name_from_summary": "SEEBURGER",
+  "key_topics_mentioned": [
+    "Business Integration Suite (BIS)",
+    "Managed File Transfer (MFT)",
+    "B2B/EDI Integration",
+    "API Integration",
+    "Cloud Integration Services",
+    "SEEBURGER iPaaS"
+  ]
+}
+```

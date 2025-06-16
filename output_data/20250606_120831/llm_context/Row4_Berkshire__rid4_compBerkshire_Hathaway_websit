@@ -1,0 +1,8 @@
+```json
+{
+  "original_url": null,
+  "summary": "Berkshire Hathaway Inc., headquartered in Omaha, NE, is a diversified holding company led by Warren E. Buffett.  The company provides annual and interim reports, news releases, and SEC filings. It features letters to shareholders from Warren Buffett and Charlie Munger, and information on its operating companies, including GEICO insurance.",
+  "extracted_company_name_from_summary": "Berkshire Hathaway Inc.",
+  "key_topics_mentioned": ["Investments", "Insurance", "Annual Reports", "Shareholder Letters"]
+}
+```
