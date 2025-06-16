@@ -1,2 +1,0 @@
-log_timestamp,input_row_identifier,CompanyName,GivenURL,stage_of_failure,error_reason,error_details,Associated_Pathful_Canonical_URL
-2025-06-06T14:10:13.955358,3,SEELAND JOB AG,http://www.seelandjob.ch,RowProcessing_UnhandledException,Unhandled exception in main loop,"{""exception_type"": ""Exception"", ""exception_message"": ""Browser.close: Connection closed while reading from the driver""}",

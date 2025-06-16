@@ -1,2 +1,0 @@
-log_timestamp,input_row_identifier,CompanyName,GivenURL,stage_of_failure,error_reason,error_details,Associated_Pathful_Canonical_URL
-2025-06-10T12:45:16.503998,0,exxomove GmbH,https://www.exxomove.de/,RowProcessing_UnhandledException,Unhandled exception in main loop,"{""exception_type"": ""Exception"", ""exception_message"": ""Browser.close: Connection closed while reading from the driver""}",
