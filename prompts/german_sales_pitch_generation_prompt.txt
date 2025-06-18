@@ -1,0 +1,34 @@
+Your primary task is to generate a compelling, consultative sales pitch in German. You will be provided with the [Target Company Attributes JSON] and the [Matched Golden Partner JSON].
+
+Return a single, valid JSON object. Do not include any conversational preamble, summaries, or text outside this JSON structure. Your response must begin with '{' and end with '}'.
+
+**Tasks to Perform:**
+
+1.  **Identify Key Rationale (in German):**
+    *   Based on the provided data, list the key `match_rationale_features` in German.
+    *   Highlight precise, concrete similarities—particularly the shared customer base, market segments served, types of client organizations, or purchasing audiences—that form strong common ground.
+
+2.  **Generate Consultative Sales Line (in German):**
+    *   Craft a compelling `phone_sales_line` in German.
+    *   Do NOT mention the Golden Partner's name.
+    *   Use the following mandatory structure, where the `[Begründung]` is dynamically generated to mention the matched partner's industry and the shared customer base.
+
+**Mandatory Structure:**
+"Ich rufe Sie an, weil wir bereits ein ähnliches Projekt sehr erfolgreich umgesetzt haben – für ein Unternehmen, das [Produkt/Branche des Partners] anbietet und ebenfalls [kurze Beschreibung der gemeinsamen Kundenzielgruppe oder des Marktsegments] bedient. Für dieses Unternehmen haben wir {programmatic placeholder} Leads pro Tag generiert und möchten mit Ihnen besprechen, wie wir ähnliche Ergebnisse auch für Sie erzielen können."
+
+**JSON Response Format:**
+{
+  "match_rationale_features": [
+    "Gemeinsame Zielgruppe: Krankenhäuser, Kliniken und Personalabteilungen im Gesundheitswesen",
+    "Ähnliche Branchenanforderungen: Dienstplanung, Compliance-Software und regulatorische Sicherheit"
+  ],
+  "phone_sales_line": "Ich rufe Sie an, weil wir bereits ein ähnliches Projekt sehr erfolgreich umgesetzt haben – für ein Unternehmen, das Software für Dienstplanung und Compliance speziell für Krankenhäuser und Kliniken anbietet und zudem Personalabteilungen im erweiterten Gesundheitswesen bedient. Für dieses Unternehmen haben wir {programmatic placeholder} Leads pro Tag generiert und möchten mit Ihnen besprechen, wie wir ähnliche Ergebnisse auch für Sie erzielen können."
+}
+
+--------TARGET COMPANY ATTRIBUTES JSON------------
+{{TARGET_COMPANY_ATTRIBUTES_JSON_PLACEHOLDER}}
+-----------END OF JSON-----------------
+
+--------MATCHED GOLDEN PARTNER JSON------------
+{{MATCHED_GOLDEN_PARTNER_JSON_PLACEHOLDER}}
+-----------END OF JSON-----------------

@@ -69,6 +69,12 @@ class DetailedCompanyAttributes(BaseModel):
     company_size_category_inferred: Optional[str] = Field(default=None, description="Inferred company size category (e.g., 'Startup', 'SME', 'Large Enterprise', 'Unknown/Not Specified').")
     innovation_level_indicators_text: Optional[str] = Field(default=None, description="Textual clues about the company's innovation level or focus (e.g., 'uses innovative workshops', 'AI-supported').")
     website_clarity_notes: Optional[str] = Field(default=None, description="Notes on how clearly the business model and target group are communicated on the website, based on the summary.")
+class PartnerMatchOnlyOutput(BaseModel):
+    """
+    Structures the output of an LLM call that only performs partner matching.
+    """
+    match_score: Optional[str] = Field(default=None, description="Qualitative score (e.g., 'High', 'Medium', 'Low') indicating the strength of the match.")
+    matched_partner_name: Optional[str] = Field(default=None, description="Name of the Golden Partner identified by the LLM as the closest match.")
 class GoldenPartnerMatchOutput(BaseModel):
     """
     Structures the output of an LLM call that includes comparison

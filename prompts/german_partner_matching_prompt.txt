@@ -1,0 +1,22 @@
+Your primary task is to analyze the provided [Target Company Attributes JSON] and the [List of Golden Partner Summaries]. Your goal is to identify the most relevant "Golden Partner" to use as a case study.
+
+Return a single, valid JSON object. Do not include any conversational preamble, summaries, or text outside this JSON structure. Your response must begin with '{' and end with '}'.
+
+**CRITICAL MATCHING CRITERIA:**
+1.  **Primary Filter: Shared Industry/Audience.** You MUST prioritize partners that share a similar `industry` or `target_audience` with the Target Company. This is the most important factor.
+2.  **Secondary Filter: Rank.** If multiple partners share a similar industry/audience, use the `rank` as a tie-breaker.
+3.  **No Match Condition.** If NO partner shares a reasonably similar industry or target audience, you MUST return "No suitable match found" for the `matched_partner_name` and a `match_score` of "Low". Do not force a match.
+
+**JSON Response Format:**
+{
+  "match_score": "High",
+  "matched_partner_name": "Partner Name"
+}
+
+--------TARGET COMPANY ATTRIBUTES JSON------------
+{{TARGET_COMPANY_ATTRIBUTES_JSON_PLACEHOLDER}}
+-----------END OF JSON-----------------
+
+--------LIST OF GOLDEN PARTNER SUMMARIES------------
+{{GOLDEN_PARTNER_SUMMARIES_PLACEHOLDER}}
+-----------END OF SUMMARIES-----------------

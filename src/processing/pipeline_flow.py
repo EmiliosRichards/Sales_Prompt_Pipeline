@@ -28,14 +28,15 @@ from collections import Counter
 
 from src.core.config import AppConfig
 from src.core.schemas import (
-    WebsiteTextSummary, DetailedCompanyAttributes, GoldenPartnerMatchOutput
+    WebsiteTextSummary, DetailedCompanyAttributes, GoldenPartnerMatchOutput, PartnerMatchOnlyOutput
 )
 from src.data_handling.consolidator import get_canonical_base_url
 from src.llm_clients.gemini_client import GeminiClient
 from src.scraper import scrape_website
 from src.extractors.llm_tasks.summarize_task import generate_website_summary
 from src.extractors.llm_tasks.extract_attributes_task import extract_detailed_attributes
-from src.extractors.llm_tasks.generate_insights_task import generate_sales_insights
+from src.extractors.llm_tasks.match_partner_task import match_partner
+from src.extractors.llm_tasks.generate_sales_pitch_task import generate_sales_pitch
 from src.utils.helpers import log_row_failure, sanitize_filename_component
 from src.processing.url_processor import process_input_url
 
@@ -354,12 +355,11 @@ def execute_pipeline_flow(
                 continue
             logger.info(f"{log_identifier} LLM Call 2 (Attribute Extraction) successful.")
 
-            # --- 5. LLM Call 3: Generate Sales Insights & Compare ---
-            sales_insights_obj_tuple = generate_sales_insights(
+            # --- 5. LLM Call 3: Match Partner ---
+            partner_match_tuple = match_partner(
                 gemini_client=gemini_client,
                 config=app_config,
                 target_attributes=detailed_attributes_obj,
-                website_summary_obj=website_summary_obj,
                 golden_partner_summaries=golden_partner_summaries,
                 llm_context_dir=llm_context_dir,
                 llm_requests_dir=llm_requests_dir,
@@ -367,36 +367,78 @@ def execute_pipeline_flow(
                 triggering_input_row_id=index,
                 triggering_company_name=company_name_str
             )
-            final_match_output = sales_insights_obj_tuple[0]
-            if sales_insights_obj_tuple[2]:  # token_stats
-                run_metrics["llm_processing_stats"]["total_llm_prompt_tokens"] += \
-                    sales_insights_obj_tuple[2].get("prompt_tokens", 0)
-                run_metrics["llm_processing_stats"]["total_llm_completion_tokens"] += \
-                    sales_insights_obj_tuple[2].get("completion_tokens", 0)
-                run_metrics["llm_processing_stats"]["total_llm_tokens_overall"] += \
-                    sales_insights_obj_tuple[2].get("total_tokens", 0)
-                run_metrics["llm_processing_stats"]["llm_calls_sales_insights"] = \
-                    run_metrics["llm_processing_stats"].get("llm_calls_sales_insights", 0) + 1
+            partner_match_output = partner_match_tuple[0]
+            if partner_match_tuple[2]:  # token_stats
+                run_metrics["llm_processing_stats"]["total_llm_prompt_tokens"] += partner_match_tuple[2].get("prompt_tokens", 0)
+                run_metrics["llm_processing_stats"]["total_llm_completion_tokens"] += partner_match_tuple[2].get("completion_tokens", 0)
+                run_metrics["llm_processing_stats"]["total_llm_tokens_overall"] += partner_match_tuple[2].get("total_tokens", 0)
+                run_metrics["llm_processing_stats"]["llm_calls_partner_matching"] = run_metrics["llm_processing_stats"].get("llm_calls_partner_matching", 0) + 1
 
-            if not final_match_output:
-                logger.warning(f"{log_identifier} LLM Call 3 (Sales Insights) failed. Raw: {sales_insights_obj_tuple[1]}")
+            if not partner_match_output or not partner_match_output.matched_partner_name or partner_match_output.matched_partner_name == "No suitable match found":
+                logger.warning(f"{log_identifier} LLM Call 3 (Partner Matching) failed or found no suitable match. Raw: {partner_match_tuple[1]}")
                 log_row_failure(
                     failure_writer, index, company_name_str, given_url_original_str,
-                    "LLM_SalesInsights_Failed", "Failed to generate sales insights.",
+                    "LLM_PartnerMatching_FailedOrNoMatch", "Failed to find a suitable partner match.",
                     datetime.now().isoformat(),
-                    json.dumps({"raw_response": sales_insights_obj_tuple[1] or "N/A"})
+                    json.dumps({"raw_response": partner_match_tuple[1] or "N/A"})
                 )
-                row_level_failure_counts["LLM_SalesInsights_Failed"] += 1
-                # Still add a partial output if attributes were extracted
+                row_level_failure_counts["LLM_PartnerMatching_FailedOrNoMatch"] += 1
                 all_golden_partner_match_outputs.append(
                     GoldenPartnerMatchOutput(
                         analyzed_company_url=detailed_attributes_obj.input_summary_url,
                         analyzed_company_attributes=detailed_attributes_obj,
-                        match_rationale_features=["LLM Sales Insights Generation Failed"]
+                        match_rationale_features=["LLM Partner Matching Failed or No Match Found"]
+                    )
+                )
+                continue
+
+            logger.info(f"{log_identifier} LLM Call 3 (Partner Matching) successful. Matched with: {partner_match_output.matched_partner_name}")
+
+            # --- 6. LLM Call 4: Generate Sales Pitch ---
+            matched_partner_data = next((p for p in golden_partner_summaries if p.get('name') == partner_match_output.matched_partner_name), None)
+
+            if not matched_partner_data:
+                logger.error(f"{log_identifier} Could not find full data for matched partner: {partner_match_output.matched_partner_name}")
+                # Handle error appropriately
+                continue
+
+            sales_pitch_tuple = generate_sales_pitch(
+                gemini_client=gemini_client,
+                config=app_config,
+                target_attributes=detailed_attributes_obj,
+                matched_partner=matched_partner_data,
+                website_summary_obj=website_summary_obj,
+                llm_context_dir=llm_context_dir,
+                llm_requests_dir=llm_requests_dir,
+                file_identifier_prefix=llm_file_prefix_row,
+                triggering_input_row_id=index,
+                triggering_company_name=company_name_str
+            )
+            final_match_output = sales_pitch_tuple[0]
+            if sales_pitch_tuple[2]:  # token_stats
+                run_metrics["llm_processing_stats"]["total_llm_prompt_tokens"] += sales_pitch_tuple[2].get("prompt_tokens", 0)
+                run_metrics["llm_processing_stats"]["total_llm_completion_tokens"] += sales_pitch_tuple[2].get("completion_tokens", 0)
+                run_metrics["llm_processing_stats"]["total_llm_tokens_overall"] += sales_pitch_tuple[2].get("total_tokens", 0)
+                run_metrics["llm_processing_stats"]["llm_calls_sales_pitch_generation"] = run_metrics["llm_processing_stats"].get("llm_calls_sales_pitch_generation", 0) + 1
+
+            if not final_match_output:
+                logger.warning(f"{log_identifier} LLM Call 4 (Sales Pitch Generation) failed. Raw: {sales_pitch_tuple[1]}")
+                log_row_failure(
+                    failure_writer, index, company_name_str, given_url_original_str,
+                    "LLM_SalesPitchGeneration_Failed", "Failed to generate sales pitch.",
+                    datetime.now().isoformat(),
+                    json.dumps({"raw_response": sales_pitch_tuple[1] or "N/A"})
+                )
+                row_level_failure_counts["LLM_SalesPitchGeneration_Failed"] += 1
+                all_golden_partner_match_outputs.append(
+                    GoldenPartnerMatchOutput(
+                        analyzed_company_url=detailed_attributes_obj.input_summary_url,
+                        analyzed_company_attributes=detailed_attributes_obj,
+                        match_rationale_features=["LLM Sales Pitch Generation Failed"]
                     )
                 )
             else:
-                logger.info(f"{log_identifier} LLM Call 3 (Sales Insights) successful.")
+                logger.info(f"{log_identifier} LLM Call 4 (Sales Pitch Generation) successful.")
                 all_golden_partner_match_outputs.append(final_match_output)
             # --- End of LLM Flow for a row ---
 

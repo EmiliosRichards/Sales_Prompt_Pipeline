@@ -117,8 +117,7 @@ def write_sales_outreach_report(
     output_dir: str,
     run_id: str,
     original_df: pd.DataFrame,
-    golden_partners_raw: List[Dict[str, Any]],
-    sales_prompt_path: str
+    sales_prompt_path: Optional[str] = None
 ) -> Optional[str]:
     """
     Writes the sales outreach data to a CSV file.
@@ -128,8 +127,6 @@ def write_sales_outreach_report(
         output_dir (str): The directory where the CSV file will be saved.
         run_id (str): The unique identifier for the current run.
         original_df (pd.DataFrame): The original input DataFrame.
-        golden_partners_raw (List[Dict[str, Any]]): A list of dictionaries, where each dictionary
-                                                  represents a golden partner.
 
     Returns:
         Optional[str]: The full path to the saved CSV file, or None if an error occurred.
@@ -160,10 +157,10 @@ def write_sales_outreach_report(
                     'Industry': attrs.industry if attrs else original_row.get('Kategorie'),
                     'Sales Line': row_output.phone_sales_line.replace('{programmatic placeholder}', str(row_output.avg_leads_per_day)) if row_output.phone_sales_line and row_output.avg_leads_per_day is not None else row_output.phone_sales_line,
                     'Key Resonating Themes': "; ".join(row_output.match_rationale_features) if row_output.match_rationale_features else "",
-                    'Matched Partner Name': row_output.matched_partner_name,
-                    'Matched Partner Description': next((p.get('description', '') for p in golden_partners_raw if p.get('name') == row_output.matched_partner_name), '') if row_output.matched_partner_name else '',
-                    'Avg Leads Per Day': row_output.avg_leads_per_day,
-                    'Rank': row_output.rank,
+                    'Matched Partner Name': row_output.matched_partner_name if row_output.matched_partner_name else '',
+                    'Matched Partner Description': row_output.matched_partner_description if row_output.matched_partner_description else '',
+                    'Avg Leads Per Day': row_output.avg_leads_per_day if row_output.avg_leads_per_day is not None else '',
+                    'Rank': row_output.rank if row_output.rank is not None else '',
                     'Match Score': row_output.match_score,
                     'B2B Indicator': attrs.b2b_indicator if attrs else '',
                     'Phone Outreach Suitability': attrs.phone_outreach_suitability if attrs else '',

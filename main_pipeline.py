@@ -230,8 +230,7 @@ def main() -> None:
                 true_base_scraper_status=true_base_scraper_status,
                 original_phone_col_name_for_profile=None,
                 original_input_file_path=input_file_path_abs,
-                golden_partners_raw=golden_partners_raw,
-                sales_prompt_path=app_config.PROMPT_PATH_COMPARISON_SALES_LINE
+                sales_prompt_path=None
             )
 
     except Exception as pipeline_exec_error:

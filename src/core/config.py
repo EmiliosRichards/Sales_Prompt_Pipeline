@@ -301,8 +301,12 @@ class AppConfig:
         self.sales_prompt_language: str = os.getenv('SALES_PROMPT_LANGUAGE', 'en').lower()
         
         if self.sales_prompt_language == 'de':
-            self.PROMPT_PATH_COMPARISON_SALES_LINE: str = get_clean_path('PROMPT_PATH_GERMAN_COMPARISON_SALES_LINE', 'prompts/german_comparison_sales_line_prompt.txt')
+            self.PROMPT_PATH_GERMAN_PARTNER_MATCHING: str = get_clean_path('PROMPT_PATH_GERMAN_PARTNER_MATCHING', 'prompts/german_partner_matching_prompt.txt')
+            self.PROMPT_PATH_GERMAN_SALES_PITCH_GENERATION: str = get_clean_path('PROMPT_PATH_GERMAN_SALES_PITCH_GENERATION', 'prompts/german_sales_pitch_generation_prompt.txt')
         else:
+            # English prompts would be defined here if they existed
+            self.PROMPT_PATH_GERMAN_PARTNER_MATCHING: str = get_clean_path('PROMPT_PATH_GERMAN_PARTNER_MATCHING', 'prompts/german_partner_matching_prompt.txt')
+            self.PROMPT_PATH_GERMAN_SALES_PITCH_GENERATION: str = get_clean_path('PROMPT_PATH_GERMAN_SALES_PITCH_GENERATION', 'prompts/german_sales_pitch_generation_prompt.txt')
             self.PROMPT_PATH_COMPARISON_SALES_LINE: str = get_clean_path('PROMPT_PATH_COMPARISON_SALES_LINE', 'prompts/comparison_sales_line_prompt.txt')
         self.MAX_GOLDEN_PARTNERS_IN_PROMPT: int = int(os.getenv('MAX_GOLDEN_PARTNERS_IN_PROMPT', '10'))
  

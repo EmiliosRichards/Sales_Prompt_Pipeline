@@ -10,11 +10,11 @@ import google.generativeai.types as genai_types
 from google.api_core import exceptions as google_exceptions
 from pydantic import ValidationError as PydanticValidationError
 
-from ...core.config import AppConfig
-from ...core.schemas import DetailedCompanyAttributes, GoldenPartnerMatchOutput, WebsiteTextSummary
-from ...utils.helpers import sanitize_filename_component
-from ...llm_clients.gemini_client import GeminiClient
-from ...utils.llm_processing_helpers import (
+from src.core.config import AppConfig
+from src.core.schemas import DetailedCompanyAttributes, GoldenPartnerMatchOutput, WebsiteTextSummary
+from src.utils.helpers import sanitize_filename_component
+from src.llm_clients.gemini_client import GeminiClient
+from src.utils.llm_processing_helpers import (
     load_prompt_template,
     save_llm_artifact,
     extract_json_from_text,
@@ -68,9 +68,6 @@ def generate_sales_insights(
     prompt_template_path: str = "Path not initialized"
 
     try:
-        if not hasattr(config, 'PROMPT_PATH_COMPARISON_SALES_LINE') or not config.PROMPT_PATH_COMPARISON_SALES_LINE:
-            logger.error(f"{log_prefix} AppConfig.PROMPT_PATH_COMPARISON_SALES_LINE is not set.")
-            return None, "Error: PROMPT_PATH_COMPARISON_SALES_LINE not configured.", token_stats
         prompt_template_path = config.PROMPT_PATH_COMPARISON_SALES_LINE
         prompt_template = load_prompt_template(prompt_template_path)
 
