@@ -63,7 +63,7 @@ def execute_pipeline_flow(
     run_id: str,
     failure_writer: Any,  # csv.writer object
     run_metrics: Dict[str, Any],
-    golden_partner_summaries: List[Dict[str, str]]
+    golden_partner_summaries: List[Dict[str, Any]],
 ) -> PipelineOutput:
     """
     Executes the core data processing flow of the pipeline.

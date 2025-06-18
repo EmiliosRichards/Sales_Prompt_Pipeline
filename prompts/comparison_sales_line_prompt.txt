@@ -1,3 +1,10 @@
+First, think step-by-step. Your internal process should be:
+1.  **Analyze the Target Company:** Carefully review the `Target Company Attributes JSON`.
+2.  **Evaluate Each Partner:** For each `Golden Partner Summary`, compare its characteristics (industry, customer base, etc.) against the target company's attributes.
+3.  **Select the Best Match:** Identify the partner that offers the most strategic and compelling angle for a sales pitch. This isn't just about the closest match, but the one whose story will resonate most.
+4.  **Formulate Rationale:** Determine the key `match_rationale_features` that justify your choice.
+5.  **Draft the Sales Line:** Construct the `phone_sales_line` part-by-part, ensuring it flows logically and incorporates the rationale.
+After completing this internal thought process, generate ONLY the final JSON object as your response.
 Your primary task is to analyze the provided [Target Company Attributes JSON] and the [List of Golden Partner Summaries]. Your goal is to identify the most relevant "Golden Partner" to use as an anonymous case study for crafting a compelling, consultative sales pitch leveraging tactical empathy and modern sales techniques.
 
 Return a single, valid JSON object. Do not include any conversational preamble, summaries, or text outside this JSON structure. Your response must begin with '{' and end with '}'.
@@ -71,3 +78,61 @@ Remember, the entire response must contain ONLY the JSON object. The "analyzed_c
 --------LIST OF GOLDEN PARTNER SUMMARIES------------
 {{GOLDEN_PARTNER_SUMMARIES_PLACEHOLDER}}
 -----------END OF SUMMARIES-----------------
+---
+HIGH-QUALITY EXAMPLE - DO NOT ALTER
+---
+
+--------TARGET COMPANY ATTRIBUTES JSON------------
+{
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Software for Logistics",
+  "products_services_offered": [
+    "LogiCloud (cloud-based WMS)",
+    "RouteMax (AI-powered route optimization)",
+    "Strategic consulting for logistics"
+  ],
+  "usp_key_selling_points": [
+    "Specialization in logistics industry",
+    "AI-powered optimization",
+    "SaaS solutions with ERP integration"
+  ],
+  "customer_target_segments": [
+    "Medium to large-sized businesses",
+    "Companies in the DACH region"
+  ],
+  "business_model": "SaaS with strategic consulting services",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "Summary highlights AI-powered software and a mission to use intelligent software."
+}
+-----------END OF JSON-----------------
+
+--------LIST OF GOLDEN PARTNER SUMMARIES------------
+[
+  {
+    "name": "Global Retail Solutions",
+    "summary": "A leading provider of point-of-sale (POS) systems for large retail chains. They focus on scalability and seamless integration with inventory management systems."
+  },
+  {
+    "name": "HealthCare Analytics Inc.",
+    "summary": "Specializes in data analytics platforms for hospitals. Their tools help optimize patient flow and resource allocation, serving large healthcare networks."
+  },
+  {
+    "name": "Eco-Friendly Packaging Co.",
+    "summary": "Provides sustainable packaging solutions for e-commerce businesses. They target environmentally conscious brands and medium-to-large online retailers."
+  }
+]
+-----------END OF SUMMARIES-----------------
+
+--------EXPECTED JSON RESPONSE------------
+{
+  "match_score": "High",
+  "match_rationale_features": [
+    "Serves medium to large-sized businesses",
+    "Provides scalable B2B solutions",
+    "Focuses on integration with existing enterprise systems (ERP/inventory)"
+  ],
+  "phone_sales_line": "I was reviewing your company's impressive focus on AI-powered logistics software for medium and large enterprises, and it reminded me of another recent partner working in point-of-sale systems for large retail chains. Though in a different field, they also cater to large-scale B2B clients requiring seamless integration with their core operational software, and together we significantly improved their sales outcomes. Would it be unreasonable to briefly discuss how we achieved that result?",
+  "matched_partner_name": "Global Retail Solutions"
+}

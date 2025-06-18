@@ -195,13 +195,13 @@ class AppConfig:
         self.scrape_retry_delay_seconds: int = int(os.getenv('SCRAPER_RETRY_DELAY_SECONDS', '5'))
         
         # Link Prioritization and Control Settings
-        target_link_keywords_str: str = os.getenv('TARGET_LINK_KEYWORDS', 'about,company,services,products,solutions,team,mission')
+        target_link_keywords_str: str = os.getenv('TARGET_LINK_KEYWORDS', 'about,company,services,products,solutions,team,mission,projekte,produkte,leistungen,lösungen,unternehmen,über-uns,ueber-uns')
         self.target_link_keywords: List[str] = [kw.strip().lower() for kw in target_link_keywords_str.split(',') if kw.strip()]
         
         critical_priority_keywords_str: str = os.getenv('SCRAPER_CRITICAL_PRIORITY_KEYWORDS', 'about-us,company-profile')
         self.scraper_critical_priority_keywords: List[str] = [kw.strip().lower() for kw in critical_priority_keywords_str.split(',') if kw.strip()]
         
-        high_priority_keywords_str: str = os.getenv('SCRAPER_HIGH_PRIORITY_KEYWORDS', 'services,products,solutions')
+        high_priority_keywords_str: str = os.getenv('SCRAPER_HIGH_PRIORITY_KEYWORDS', 'services,products,solutions,leistungen,produkte,lösungen')
         self.scraper_high_priority_keywords: List[str] = [kw.strip().lower() for kw in high_priority_keywords_str.split(',') if kw.strip()]
         
         self.scraper_max_keyword_path_segments: int = int(os.getenv('SCRAPER_MAX_KEYWORD_PATH_SEGMENTS', '3'))
@@ -238,7 +238,8 @@ class AppConfig:
         self.llm_model_name: str = os.getenv('LLM_MODEL_NAME', 'gemini-1.5-pro-latest')  # Default to a capable model
         self.llm_model_name_sales_insights: str = os.getenv('LLM_MODEL_NAME_SALES_INSIGHTS', 'gemini-1.5-pro-preview-06-05')
         self.llm_temperature_default: float = float(os.getenv('LLM_TEMPERATURE_DEFAULT', '0.3'))
-        self.llm_temperature_sales_insights: float = float(os.getenv('LLM_TEMPERATURE_SALES_INSIGHTS', '0.5'))
+        self.llm_temperature_extraction: float = float(os.getenv('LLM_TEMPERATURE_EXTRACTION', '0.2'))
+        self.llm_temperature_creative: float = float(os.getenv('LLM_TEMPERATURE_CREATIVE', '0.5'))
         self.llm_max_tokens: int = int(os.getenv('LLM_MAX_TOKENS', '3000'))  # Updated default
         self.llm_chunk_processor_max_tokens: int = int(os.getenv('LLM_CHUNK_PROCESSOR_MAX_TOKENS', '4096'))
         self.llm_max_chunks_per_url: int = int(os.getenv('LLM_MAX_CHUNKS_PER_URL', '5'))
@@ -295,7 +296,14 @@ class AppConfig:
         self.PROMPT_PATH_WEBSITE_SUMMARIZER: str = get_clean_path('PROMPT_PATH_WEBSITE_SUMMARIZER', 'prompts/website_summarizer_prompt.txt')
         self.PROMPT_PATH_ATTRIBUTE_EXTRACTOR: str = get_clean_path('PROMPT_PATH_ATTRIBUTE_EXTRACTOR', 'prompts/attribute_extractor_prompt.txt')
         self.LLM_MAX_INPUT_CHARS_FOR_SUMMARY: int = int(os.getenv('LLM_MAX_INPUT_CHARS_FOR_SUMMARY', '40000'))
-        self.PROMPT_PATH_COMPARISON_SALES_LINE: str = get_clean_path('PROMPT_PATH_COMPARISON_SALES_LINE', 'prompts/comparison_sales_line_prompt.txt')
+        
+        # --- Language-Specific Prompt Configuration ---
+        self.sales_prompt_language: str = os.getenv('SALES_PROMPT_LANGUAGE', 'en').lower()
+        
+        if self.sales_prompt_language == 'de':
+            self.PROMPT_PATH_COMPARISON_SALES_LINE: str = get_clean_path('PROMPT_PATH_GERMAN_COMPARISON_SALES_LINE', 'prompts/german_comparison_sales_line_prompt.txt')
+        else:
+            self.PROMPT_PATH_COMPARISON_SALES_LINE: str = get_clean_path('PROMPT_PATH_COMPARISON_SALES_LINE', 'prompts/comparison_sales_line_prompt.txt')
         self.MAX_GOLDEN_PARTNERS_IN_PROMPT: int = int(os.getenv('MAX_GOLDEN_PARTNERS_IN_PROMPT', '10'))
  
         # --- URL Probing Configuration ---
@@ -308,7 +316,7 @@ class AppConfig:
         self.input_file_profile_name: str = os.getenv("INPUT_FILE_PROFILE_NAME", "default")
         self.output_excel_file_name_template: str = os.getenv('OUTPUT_EXCEL_FILE_NAME_TEMPLATE', 'Pipeline_Summary_Report_{run_id}.xlsx')
         self.PROSPECT_ANALYSIS_CSV_FILENAME_TEMPLATE: str = os.getenv('PROSPECT_ANALYSIS_CSV_FILENAME_TEMPLATE', 'ProspectAnalysisReport_{run_id}.csv')
-        self.PATH_TO_GOLDEN_PARTNERS_DATA: str = os.getenv('PATH_TO_GOLDEN_PARTNERS_DATA', 'data/kunden_golden_standard.xlsx')
+        self.PATH_TO_GOLDEN_PARTNERS_DATA: str = get_clean_path('PATH_TO_GOLDEN_PARTNERS_DATA', 'data/kgs_001_ER47_20250617.xlsx')
 
         # --- Row Processing Range Configuration ---
         self.skip_rows_config: Optional[int] = None
@@ -362,8 +370,8 @@ class AppConfig:
         self.console_log_level: str = os.getenv('CONSOLE_LOG_LEVEL', 'WARNING').upper()
 
         # --- Page Type Classification Keywords ---
-        page_type_about_str: str = os.getenv('PAGE_TYPE_KEYWORDS_ABOUT', 'about,about-us,company,profile,mission,vision,team')
+        page_type_about_str: str = os.getenv('PAGE_TYPE_KEYWORDS_ABOUT', 'about,about-us,company,profile,mission,vision,team,unternehmen,profil,ueber-uns,uber-uns')
         self.page_type_keywords_about: List[str] = [kw.strip().lower() for kw in page_type_about_str.split(',') if kw.strip()]
 
-        page_type_product_service_str: str = os.getenv('PAGE_TYPE_KEYWORDS_PRODUCT_SERVICE', 'products,services,solutions,offerings,platform,features')
+        page_type_product_service_str: str = os.getenv('PAGE_TYPE_KEYWORDS_PRODUCT_SERVICE', 'products,services,solutions,offerings,platform,features,produkte,leistungen,lösungen,angebot')
         self.page_type_keywords_product_service: List[str] = [kw.strip().lower() for kw in page_type_product_service_str.split(',') if kw.strip()]

@@ -1,3 +1,4 @@
+First, think step-by-step. Analyze the provided [Website Summary Text] and meticulously plan how to extract each required attribute. For each field in the JSON structure, identify the specific sentences or phrases in the summary that provide the necessary information. After forming a clear internal plan for each attribute, generate ONLY the final JSON object as your response.
 Your primary task is to analyze the provided [Website Summary Text] and extract detailed company attributes. Return a single, valid JSON object. Do not include any conversational preamble, summaries, or any text whatsoever outside of this JSON structure. Your response must begin with '{' and end with '}'.
 
 Based on the [Website Summary Text], extract the following information:
@@ -44,3 +45,38 @@ The "input_summary_url" field is a placeholder; your LLM response should generat
 --------WEBSITE SUMMARY TEXT------------
 {{WEBSITE_SUMMARY_TEXT_PLACEHOLDER}}
 -----------END OF TEXT-----------------
+---
+HIGH-QUALITY EXAMPLE - DO NOT ALTER
+---
+
+--------WEBSITE SUMMARY TEXT------------
+Innovatech GmbH is a German software company founded in 2010 that specializes in providing customized software solutions for the logistics industry. The company focuses on helping medium to large-sized businesses in the DACH region (Germany, Austria, Switzerland) digitize and optimize their supply chains. Their core offerings include 'LogiCloud,' a cloud-based Warehouse Management System (WMS) offered as a SaaS solution with features like real-time tracking and ERP integration, and 'RouteMax,' an AI-powered software for route optimization to improve efficiency and reduce fuel consumption. Additionally, Innovatech GmbH provides strategic consulting services for logistics process optimization. Their stated mission is to make logistics more sustainable and efficient through intelligent software.
+-----------END OF TEXT-----------------
+
+--------EXPECTED JSON RESPONSE------------
+{
+  "input_summary_url": "https://www.innovatech-gmbh.de",
+  "b2b_indicator": true,
+  "phone_outreach_suitability": true,
+  "target_group_size_assessment": "Appears Large / >=500 potential",
+  "industry": "Software for Logistics",
+  "products_services_offered": [
+    "LogiCloud (cloud-based WMS)",
+    "RouteMax (AI-powered route optimization)",
+    "Strategic consulting for logistics"
+  ],
+  "usp_key_selling_points": [
+    "Specialization in logistics industry",
+    "AI-powered optimization",
+    "SaaS solutions with ERP integration"
+  ],
+  "customer_target_segments": [
+    "Medium to large-sized businesses",
+    "Companies in the DACH region"
+  ],
+  "business_model": "SaaS with strategic consulting services",
+  "company_size_indicators_text": "Summary mentions serving medium to large-sized businesses.",
+  "company_size_category_inferred": "SME",
+  "innovation_level_indicators_text": "Summary highlights AI-powered software and a mission to use intelligent software.",
+  "website_clarity_notes": "The business model, offerings, and target audience are very clearly articulated in the summary."
+}

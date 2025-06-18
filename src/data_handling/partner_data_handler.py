@@ -64,7 +64,9 @@ def load_golden_partners(file_path: str) -> List[Dict[str, Any]]:
             'Customer Target Segments Category': 'target_audience',
             'Business Model Category': 'business_model',
             'Company Size Category': 'company_size',
-            'Innovation Level Indicators': 'innovation_level'
+            'Innovation Level Indicators': 'innovation_level',
+            'Avg Leads Per Day': 'avg_leads_per_day',
+            'Rank (1-47)': 'rank'
         }
         df.rename(columns=column_mapping, inplace=True)
 
@@ -84,7 +86,7 @@ def load_golden_partners(file_path: str) -> List[Dict[str, Any]]:
     return partners
 
 
-def summarize_golden_partner(partner_data: Dict[str, Any]) -> Dict[str, str]:
+def summarize_golden_partner(partner_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     Creates a concise summary for a single golden partner.
 
@@ -98,8 +100,8 @@ def summarize_golden_partner(partner_data: Dict[str, Any]) -> Dict[str, str]:
             'usp', 'services_products', 'target_audience'.
 
     Returns:
-        Dict[str, str]: A dictionary containing the partner's name and a
-        semicolon-separated summary string.
+        Dict[str, Any]: A dictionary containing the partner's name, a
+        semicolon-separated summary string, avg_leads_per_day, and rank.
     """
     # Define the order and display name for summary parts
     summary_fields = [
@@ -123,7 +125,9 @@ def summarize_golden_partner(partner_data: Dict[str, Any]) -> Dict[str, str]:
 
     return {
         "name": partner_data.get("name", "Unknown Partner"),
-        "summary": summary_str
+        "summary": summary_str,
+        "avg_leads_per_day": partner_data.get("avg_leads_per_day"),
+        "rank": partner_data.get("rank")
     }
 
 

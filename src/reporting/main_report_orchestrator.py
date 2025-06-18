@@ -46,7 +46,8 @@ def generate_all_reports(
     true_base_scraper_status: Dict[str, str],  # Kept for potential use by legacy reports
     original_phone_col_name_for_profile: Optional[str],  # May become unused if augmented report is fully deprecated
     original_input_file_path: str,
-    golden_partners_raw: List[Dict[str, Any]]
+    golden_partners_raw: List[Dict[str, Any]],
+    sales_prompt_path: str
 ) -> None:
     """
     Orchestrates the generation of all standard pipeline reports.
@@ -96,7 +97,8 @@ def generate_all_reports(
             output_dir=run_output_dir,
             run_id=run_id,
             original_df=df,
-            golden_partners_raw=golden_partners_raw
+            golden_partners_raw=golden_partners_raw,
+            sales_prompt_path=sales_prompt_path
         )
         if sales_outreach_report_path:
             logger.info(f"Sales outreach report generated at: {sales_outreach_report_path}")

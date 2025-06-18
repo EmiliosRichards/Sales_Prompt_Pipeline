@@ -1,3 +1,4 @@
+First, think step-by-step to understand the user's request and the provided text. Internally, break down the tasks: identify the core business, main offerings, target audience, business model, technology, USP, and mission. Then, extract the company name. Once you have a clear internal plan, generate ONLY the final JSON object as your response.
 Your primary task is to process the provided [Scraped Website Text] and return a single, valid JSON object. Do not include any conversational preamble, summaries, or any text whatsoever outside of this JSON structure. Your response must begin with '{' and end with '}'.
 
 Based on the [Scraped Website Text], perform these tasks explicitly:
@@ -30,3 +31,27 @@ Remember, the entire response must be ONLY the JSON object. Do not wrap it in ma
 --------SCRAPED WEBSITE TEXT------------
 {{SCRAPED_WEBSITE_TEXT_PLACEHOLDER}}
 -----------END OF TEXT-------------------
+---
+HIGH-QUALITY EXAMPLE - DO NOT ALTER
+---
+
+--------SCRAPED WEBSITE TEXT------------
+Innovatech GmbH - Wir optimieren Ihre Logistik.
+
+Über Uns:
+Innovatech GmbH ist ein führender Anbieter von maßgeschneiderten Softwarelösungen für die Logistikbranche. Seit 2010 helfen wir Unternehmen dabei, ihre Lieferketten zu digitalisieren und zu optimieren. Unser Team aus erfahrenen Entwicklern und Logistikexperten arbeitet eng mit unseren Kunden zusammen, um innovative und effiziente Lösungen zu schaffen. Wir bedienen vor allem mittelständische und große Unternehmen in der DACH-Region.
+
+Produkte & Services:
+- **Warehouse Management System (WMS):** Unser cloud-basiertes WMS "LogiCloud" bietet Echtzeit-Tracking, Bestandsmanagement und automatisierte Berichterstattung. Es ist eine SaaS-Lösung, die sich nahtlos in bestehende ERP-Systeme integriert.
+- **Routenoptimierung:** Unsere Software "RouteMax" nutzt KI-Algorithmen, um die effizientesten Lieferrouten zu planen und den Kraftstoffverbrauch zu senken.
+- **Consulting:** Wir bieten strategische Beratung zur Optimierung von Logistikprozessen und zur Implementierung neuer Technologien.
+
+Unsere Mission ist es, die Logistik durch intelligente Software nachhaltiger und effizienter zu gestalten.
+-----------END OF TEXT-------------------
+
+--------EXPECTED JSON RESPONSE------------
+{
+  "original_url": "https://www.innovatech-gmbh.de",
+  "summary": "Innovatech GmbH is a German software company founded in 2010 that specializes in providing customized software solutions for the logistics industry. The company focuses on helping medium to large-sized businesses in the DACH region (Germany, Austria, Switzerland) digitize and optimize their supply chains. Their core offerings include 'LogiCloud,' a cloud-based Warehouse Management System (WMS) offered as a SaaS solution with features like real-time tracking and ERP integration, and 'RouteMax,' an AI-powered software for route optimization to improve efficiency and reduce fuel consumption. Additionally, Innovatech GmbH provides strategic consulting services for logistics process optimization. Their stated mission is to make logistics more sustainable and efficient through intelligent software.",
+  "extracted_company_name_from_summary": "Innovatech GmbH"
+}

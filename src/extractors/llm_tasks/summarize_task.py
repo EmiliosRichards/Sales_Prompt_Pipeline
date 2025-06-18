@@ -114,7 +114,7 @@ def generate_website_summary(
 
     try:
         max_tokens_val = config.llm_max_tokens_summary if hasattr(config, 'llm_max_tokens_summary') and config.llm_max_tokens_summary is not None else config.llm_max_tokens
-        temperature_val = config.llm_temperature_summary if hasattr(config, 'llm_temperature_summary') and config.llm_temperature_summary is not None else config.llm_temperature_default
+        temperature_val = config.llm_temperature_extraction
         
         generation_config_dict = {
             "response_mime_type": "text/plain",

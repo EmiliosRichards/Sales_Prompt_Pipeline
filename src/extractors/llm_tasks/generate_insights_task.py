@@ -27,7 +27,7 @@ def generate_sales_insights(
     config: AppConfig,
     target_attributes: DetailedCompanyAttributes,
     website_summary_obj: WebsiteTextSummary,
-    golden_partner_summaries: List[Dict[str, str]],
+    golden_partner_summaries: List[Dict[str, Any]],
     llm_context_dir: str,
     llm_requests_dir: str,
     file_identifier_prefix: str,
@@ -113,7 +113,7 @@ def generate_sales_insights(
             "response_mime_type": "text/plain",
             "candidate_count": 1,
             "max_output_tokens": config.llm_max_tokens,
-            "temperature": config.llm_temperature_sales_insights,
+            "temperature": config.llm_temperature_creative,
         }
         if hasattr(config, 'llm_top_k') and config.llm_top_k is not None:
             generation_config_dict["top_k"] = config.llm_top_k
@@ -218,16 +218,30 @@ def generate_sales_insights(
                             parsed_json_object['analyzed_company_attributes'] = target_attributes.model_dump()
                             if website_summary_obj and website_summary_obj.summary:
                                 parsed_json_object['summary'] = website_summary_obj.summary
-                            if parsed_json_object.get('matched_partner_name'):
+                            if parsed_json_object.get('matched_partner_name') and parsed_json_object.get('matched_partner_name') != "No suitable match found":
                                 # Find the summary of the matched partner
                                 for partner in golden_partner_summaries:
                                     if partner.get('name') == parsed_json_object.get('matched_partner_name'):
                                         parsed_json_object['matched_partner_description'] = partner.get('summary')
+                                        parsed_json_object['avg_leads_per_day'] = partner.get('avg_leads_per_day')
+                                        parsed_json_object['rank'] = partner.get('rank')
+                                        if parsed_json_object.get('phone_sales_line') and partner.get('avg_leads_per_day') is not None:
+                                            parsed_json_object['phone_sales_line'] = parsed_json_object['phone_sales_line'].replace(
+                                                "{programmatic placeholder}", str(partner.get('avg_leads_per_day'))
+                                            )
                                         break
+                            else:
+                                logger.warning(f"{log_prefix} No suitable partner match found by LLM.")
                         else:
                             logger.warning(f"{log_prefix} target_attributes object is None. Cannot set analyzed_company_url or analyzed_company_attributes.")
                         
                         parsed_output = GoldenPartnerMatchOutput(**parsed_json_object)
+
+                        # This check is now redundant as the replacement is done when the partner is found.
+                        # if parsed_output.phone_sales_line and parsed_output.avg_leads_per_day is not None:
+                        #     parsed_output.phone_sales_line = parsed_output.phone_sales_line.replace(
+                        #         "{programmatic placeholder}", str(parsed_output.avg_leads_per_day)
+                        #     )
 
                         logger.info(f"{log_prefix} Successfully extracted, parsed, validated GoldenPartnerMatchOutput, and set analyzed company details.")
                     else:

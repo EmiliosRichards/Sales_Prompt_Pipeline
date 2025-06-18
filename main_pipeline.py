@@ -31,15 +31,15 @@ from src.reporting.metrics_manager import write_run_metrics
 from src.processing.pipeline_flow import execute_pipeline_flow
 from src.reporting.main_report_orchestrator import generate_all_reports # NEW
 
-load_dotenv()
+load_dotenv(override=True)
 
 logger = logging.getLogger(__name__)
-app_config: AppConfig = AppConfig() # Initialize AppConfig globally for easy access
 
 # __file__ will refer to main_pipeline.py's location
 BASE_FILE_PATH_FOR_RESOLVE = __file__
 
 def main() -> None:
+    app_config: AppConfig = AppConfig() # Initialize AppConfig globally for easy access
     """
     Main entry point for the phone validation pipeline.
     Orchestrates the entire process from data loading to report generation.
@@ -106,7 +106,7 @@ def main() -> None:
         return
 
     # Load and Summarize Golden Partner Data
-    golden_partner_summaries: List[Dict[str, str]] = []
+    golden_partner_summaries: List[Dict[str, Any]] = []
     golden_partners_raw: List[Dict[str, Any]] = []
     try:
         logger.info("Loading Golden Partner data...")
@@ -230,7 +230,8 @@ def main() -> None:
                 true_base_scraper_status=true_base_scraper_status,
                 original_phone_col_name_for_profile=None,
                 original_input_file_path=input_file_path_abs,
-                golden_partners_raw=golden_partners_raw
+                golden_partners_raw=golden_partners_raw,
+                sales_prompt_path=app_config.PROMPT_PATH_COMPARISON_SALES_LINE
             )
 
     except Exception as pipeline_exec_error:

@@ -117,7 +117,8 @@ def write_sales_outreach_report(
     output_dir: str,
     run_id: str,
     original_df: pd.DataFrame,
-    golden_partners_raw: List[Dict[str, Any]]
+    golden_partners_raw: List[Dict[str, Any]],
+    sales_prompt_path: str
 ) -> Optional[str]:
     """
     Writes the sales outreach data to a CSV file.
@@ -157,10 +158,12 @@ def write_sales_outreach_report(
                     'URL': row_output.analyzed_company_url,
                     'Description': row_output.summary if row_output.summary else original_row.get('Beschreibung'),
                     'Industry': attrs.industry if attrs else original_row.get('Kategorie'),
-                    'Sales Line': row_output.phone_sales_line,
+                    'Sales Line': row_output.phone_sales_line.replace('{programmatic placeholder}', str(row_output.avg_leads_per_day)) if row_output.phone_sales_line and row_output.avg_leads_per_day is not None else row_output.phone_sales_line,
                     'Key Resonating Themes': "; ".join(row_output.match_rationale_features) if row_output.match_rationale_features else "",
                     'Matched Partner Name': row_output.matched_partner_name,
                     'Matched Partner Description': next((p.get('description', '') for p in golden_partners_raw if p.get('name') == row_output.matched_partner_name), '') if row_output.matched_partner_name else '',
+                    'Avg Leads Per Day': row_output.avg_leads_per_day,
+                    'Rank': row_output.rank,
                     'Match Score': row_output.match_score,
                     'B2B Indicator': attrs.b2b_indicator if attrs else '',
                     'Phone Outreach Suitability': attrs.phone_outreach_suitability if attrs else '',
@@ -184,6 +187,8 @@ def write_sales_outreach_report(
                     'Key Resonating Themes': '',
                     'Matched Partner Name': '',
                     'Matched Partner Description': '',
+                    'Avg Leads Per Day': '',
+                    'Rank': '',
                     'Match Score': '',
                     'B2B Indicator': '',
                     'Phone Outreach Suitability': '',

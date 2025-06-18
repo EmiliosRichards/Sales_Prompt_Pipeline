@@ -97,7 +97,7 @@ def extract_detailed_attributes(
          logger.error(f"{log_prefix} Failed to save formatted prompt artifact '{prompt_filename_with_suffix}': {e_save_prompt}", exc_info=True)
     try:
         max_tokens_val = config.llm_max_tokens
-        temperature_val = config.llm_temperature_default
+        temperature_val = config.llm_temperature_extraction
         
         generation_config_dict = {
             "response_mime_type": "text/plain",
