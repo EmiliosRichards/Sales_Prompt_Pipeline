@@ -92,7 +92,7 @@ Return a single, valid JSON object. Do not include any conversational preamble, 
     "Ähnliche Produkte/Services: Technologien zur Verbesserung der Lebensqualität und Förderung der Unabhängigkeit von Menschen mit Mobilitätseinschränkungen.",
     "Fokus auf innovative Technologien zur Unterstützung von Menschen mit Mobilitätseinschränkungen."
   ],
-  "phone_sales_line": "Ich rufe Sie an, weil wir bereits sehr erfolgreich ein ähnliches Projekt umgesetzt haben – für ein Unternehmen aus dem Bereich Healthcare-Technologie, das sich auf interaktive Aktivitätstische für Pflegeeinrichtungen spezialisiert hat, die unter anderem auch Menschen mit kognitiven Beeinträchtigungen betreuen. Für dieses Unternehmen generieren wir täglich 10.0 Leads und möchten gerne besprechen, wie wir das auch für Sie erreichen können."
+  "phone_sales_line": "Ich rufe Sie an, weil wir bereits sehr erfolgreich ein ähnliches Projekt umgesetzt haben – für ein Unternehmen aus dem Bereich Healthcare-Technologie, das sich auf interaktive Aktivitätstische für Pflegeeinrichtungen spezialisiert hat, die unter anderem auch Menschen mit kognitiven Beeinträchtigungen betreuen. Für dieses Unternehmen generieren wir täglich {programmatic placeholder} Leads und möchten gerne besprechen, wie wir das auch für Sie erreichen können."
 }
 
 --- END OF FEW-SHOT EXAMPLE 1 ---
