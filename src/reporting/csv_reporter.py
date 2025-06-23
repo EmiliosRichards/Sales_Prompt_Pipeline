@@ -155,7 +155,7 @@ def write_sales_outreach_report(
                     'URL': row_output.analyzed_company_url,
                     'Description': row_output.summary if row_output.summary else original_row.get('Beschreibung'),
                     'Industry': attrs.industry if attrs else original_row.get('Kategorie'),
-                    'Sales Line': row_output.phone_sales_line.replace('{programmatic placeholder}', str(row_output.avg_leads_per_day)) if row_output.phone_sales_line and row_output.avg_leads_per_day is not None else row_output.phone_sales_line,
+                    'Sales Line': row_output.phone_sales_line.replace('{programmatic placeholder}', f"{row_output.avg_leads_per_day:.0f}") if row_output.phone_sales_line and row_output.avg_leads_per_day is not None else row_output.phone_sales_line,
                     'Key Resonating Themes': "; ".join(row_output.match_rationale_features) if row_output.match_rationale_features else "",
                     'Matched Partner Name': row_output.matched_partner_name if row_output.matched_partner_name else '',
                     'Matched Partner Description': row_output.matched_partner_description if row_output.matched_partner_description else '',

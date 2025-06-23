@@ -36,6 +36,7 @@ Return a single, valid JSON object. Do not include any conversational preamble, 
 
 **CRITICAL INSTRUCTION:** The `{programmatic placeholder}` MUST NOT be altered or removed. It will be replaced by a script later.
 
+
 --- START OF FEW-SHOT EXAMPLE 1 ---
 
 **INPUT:**
@@ -103,7 +104,7 @@ Return a single, valid JSON object. Do not include any conversational preamble, 
     "Gemeinsame Zielgruppe: Krankenhäuser, Kliniken und Personalabteilungen im Gesundheitswesen",
     "Ähnliche Branchenanforderungen: Dienstplanung, Compliance-Software und regulatorische Sicherheit"
   ],
-  "phone_sales_line": "Ich rufe Sie an, weil wir bereits sehr erfolgreich ein ähnliches Projekt umgesetzt haben – für ein Unternehmen aus dem Bereich Dienstplanungs- und Compliance-Software für Krankenhäuser und Kliniken, das sich insbesondere an Personalabteilungen im Gesundheitswesen richtet. Für dieses Unternehmen generieren wir täglich {programmatic placeholder} Leads und möchten gerne besprechen, wie wir das auch für Sie erreichen können."
+  "phone_sales_line": "Ich rufe Sie an, weil wir bereits sehr erfolgreich ein ähnliches Projekt umgesetzt haben – für ein Unternehmen aus dem Bereich Dienstplanungs- und Compliance-Software für Krankenhäuser und Kliniken. Für dieses Unternehmen generieren wir täglich {programmatic placeholder} Leads und möchten gerne besprechen, wie wir das auch für Sie erreichen können."
 }
 
 --------TARGET COMPANY ATTRIBUTES JSON------------
