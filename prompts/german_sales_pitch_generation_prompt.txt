@@ -5,16 +5,35 @@ Return a single, valid JSON object. Do not include any conversational preamble, 
 **Tasks to Perform:**
 
 1.  **Identify Key Rationale (in German):**
-    *   Based on the provided data, list the key `match_rationale_features` in German.
-    *   Highlight precise, concrete similarities—particularly the shared customer base, market segments served, types of client organizations, or purchasing audiences—that form strong common ground.
+    Generate an array called `match_rationale_features`.
+
+    Each item must describe specific, clear, and concrete similarities between the Target Company and Matched Golden Partner.
+
+    Acceptable similarities include:
+    *   Clearly overlapping customer segments
+    *   Similar products, services, or technology fields
+    *   Industry-specific regulatory or operational requirements
+
+    **Example of good rationale features:**
+    *   `"Gemeinsame Zielgruppe: Pflegeeinrichtungen, Kliniken und Gesundheitseinrichtungen"`
+    *   `"Ähnliche Produkte: KI-gestützte Softwarelösungen zur Prozessoptimierung im Gesundheitswesen"`
+
+    **Example of bad rationale (DO NOT produce these):**
+    *   `"Beide Unternehmen sind innovativ"` (too general)
+    *   `"Sie operieren im gleichen Marktsegment"` (not specific enough)
 
 2.  **Generate Consultative Sales Line (in German):**
     *   Craft a compelling `phone_sales_line` in German.
     *   Do NOT mention the Golden Partner's name.
+--------PREVIOUS MATCH RATIONALE------------
+{{PREVIOUS_MATCH_RATIONALE_PLACEHOLDER}}
+-----------END OF RATIONALE-----------------
     *   Use the following mandatory structure, where the `[Begründung]` is dynamically generated to mention the matched partner's industry and the shared customer base.
 
 **Mandatory Structure:**
 "Ich rufe Sie an, weil wir bereits ein ähnliches Projekt sehr erfolgreich umgesetzt haben – für ein Unternehmen, das [Produkt/Branche des Partners] anbietet und ebenfalls [kurze Beschreibung der gemeinsamen Kundenzielgruppe oder des Marktsegments] bedient. Für dieses Unternehmen haben wir {programmatic placeholder} Leads pro Tag generiert und möchten mit Ihnen besprechen, wie wir ähnliche Ergebnisse auch für Sie erzielen können."
+
+**CRITICAL INSTRUCTION:** The `{programmatic placeholder}` MUST NOT be altered or removed. It will be replaced by a script later.
 
 **JSON Response Format:**
 {

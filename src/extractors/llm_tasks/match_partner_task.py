@@ -108,7 +108,7 @@ def match_partner(
         "You are a partner matching assistant. Your entire response MUST be a single, "
         "valid JSON formatted string. Do NOT include any explanations, markdown formatting (like ```json), "
         "or any other text outside of this JSON string. The JSON object must strictly conform to the "
-        "PartnerMatchOnlyOutput schema."
+        "PartnerMatchOnlyOutput schema, including the match_score, matched_partner_name, and match_rationale_features fields."
     )
     
     contents_for_api: List[genai_types.ContentDict] = [

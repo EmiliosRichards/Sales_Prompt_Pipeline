@@ -75,6 +75,7 @@ class PartnerMatchOnlyOutput(BaseModel):
     """
     match_score: Optional[str] = Field(default=None, description="Qualitative score (e.g., 'High', 'Medium', 'Low') indicating the strength of the match.")
     matched_partner_name: Optional[str] = Field(default=None, description="Name of the Golden Partner identified by the LLM as the closest match.")
+    match_rationale_features: Optional[List[str]] = Field(default_factory=list, description="List of key shared features or reasons provided by the LLM for the match.")
 class GoldenPartnerMatchOutput(BaseModel):
     """
     Structures the output of an LLM call that includes comparison

@@ -408,6 +408,7 @@ def execute_pipeline_flow(
                 target_attributes=detailed_attributes_obj,
                 matched_partner=matched_partner_data,
                 website_summary_obj=website_summary_obj,
+                previous_match_rationale=(partner_match_output.match_rationale_features or []) if partner_match_output else [],
                 llm_context_dir=llm_context_dir,
                 llm_requests_dir=llm_requests_dir,
                 file_identifier_prefix=llm_file_prefix_row,

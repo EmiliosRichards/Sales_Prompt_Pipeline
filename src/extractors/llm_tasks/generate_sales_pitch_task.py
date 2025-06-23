@@ -28,6 +28,7 @@ def generate_sales_pitch(
     target_attributes: DetailedCompanyAttributes,
     matched_partner: Dict[str, Any],
     website_summary_obj: WebsiteTextSummary,
+    previous_match_rationale: List[str],
     llm_context_dir: str,
     llm_requests_dir: str,
     file_identifier_prefix: str,
@@ -43,6 +44,7 @@ def generate_sales_pitch(
         target_attributes: The `DetailedCompanyAttributes` object for the company being analyzed.
         matched_partner: A dictionary containing the full data of the matched golden partner.
         website_summary_obj: The `WebsiteTextSummary` object for the company being analyzed.
+        previous_match_rationale: A list of strings representing the rationale from the partner matching step.
         llm_context_dir: Directory to save LLM interaction artifacts.
         llm_requests_dir: Directory to save LLM request payloads.
         file_identifier_prefix: Prefix for naming saved artifact files.
@@ -70,6 +72,8 @@ def generate_sales_pitch(
         matched_partner_json = json.dumps(matched_partner, indent=2)
         formatted_prompt = prompt_template.replace("{{TARGET_COMPANY_ATTRIBUTES_JSON_PLACEHOLDER}}", target_attributes_json)
         formatted_prompt = formatted_prompt.replace("{{MATCHED_GOLDEN_PARTNER_JSON_PLACEHOLDER}}", matched_partner_json)
+        previous_rationale_str = "\n".join([f"- {item}" for item in previous_match_rationale])
+        formatted_prompt = formatted_prompt.replace("{{PREVIOUS_MATCH_RATIONALE_PLACEHOLDER}}", previous_rationale_str)
     except Exception as e:
         logger.error(f"{log_prefix} Failed to load/format sales pitch prompt: {e}", exc_info=True)
         return None, f"Error: Failed to load/format prompt - {str(e)}", token_stats
