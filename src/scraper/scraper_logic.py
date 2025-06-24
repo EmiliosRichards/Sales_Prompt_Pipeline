@@ -2,6 +2,7 @@ import asyncio
 import os
 import re
 import logging
+import random
 import time
 import hashlib # Added for hashing long filenames
 from urllib.parse import urljoin, urlparse, urldefrag, urlunparse
@@ -296,14 +297,18 @@ async def scrape_website(
         browser = None
         try:
             browser = await p.chromium.launch(
-                headless=True,
+                headless=False,
                 args=['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
             )
             # Create one context to be reused by _perform_scrape_for_entry_point attempts
             # This means cookies/state might persist across fallback attempts for the same original given_url.
             # If strict isolation is needed, context creation would move inside the loop.
+            # Choose a random user agent if the list is not empty
+            user_agent = random.choice(config_instance.user_agents) if config_instance.user_agents else ""
+            
             playwright_context = await browser.new_context(
-                user_agent=config_instance.user_agent,
+                user_agent=user_agent,
+                extra_http_headers=config_instance.scraper_default_headers,
                 java_script_enabled=True,
                 ignore_https_errors=True
             )

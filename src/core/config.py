@@ -17,8 +17,9 @@ The configuration covers various aspects of the pipeline, including:
 - Keywords for page type classification.
 """
 import os
+import json
 from dotenv import load_dotenv
-from typing import List, Optional
+from typing import List, Optional, Dict
 
 # Load environment variables from a .env file.
 # Attempts to load from paths relative to this file's location to support
@@ -56,7 +57,8 @@ class AppConfig:
     default values for most settings if they are not specified in the environment.
 
     Attributes:
-        user_agent (str): User-agent string for web scraping.
+        user_agents (List[str]): A list of user-agent strings for web scraping.
+        scraper_default_headers (Dict[str, str]): Default headers for scraper requests.
         default_page_timeout (int): Default timeout for page operations in milliseconds.
         default_navigation_timeout (int): Default timeout for navigation actions in milliseconds.
         scrape_max_retries (int): Maximum retries for a failed scrape attempt.
@@ -174,6 +176,10 @@ class AppConfig:
             "url": "GivenURL",
             "beschreibung": "Description",
             "kategorie": "Industry"
+        },
+        "new_import_profile": {
+            "Company Name": "CompanyName",
+            "URL": "GivenURL"
         }
     }
 
@@ -188,7 +194,16 @@ class AppConfig:
         representations in environment variables.
         """
         # --- Scraper Configuration ---
-        self.user_agent: str = os.getenv('SCRAPER_USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
+        user_agents_str = os.getenv('SCRAPER_USER_AGENTS', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36')
+        self.user_agents: List[str] = [ua.strip() for ua in user_agents_str.split(',') if ua.strip()]
+
+        default_headers_json = os.getenv('SCRAPER_DEFAULT_HEADERS', '{}')
+        try:
+            self.scraper_default_headers: Dict[str, str] = json.loads(default_headers_json)
+        except json.JSONDecodeError:
+            self.scraper_default_headers = {}
+            print(f"Warning: Invalid JSON in SCRAPER_DEFAULT_HEADERS. Using empty dictionary. Value was: {default_headers_json}")
+
         self.default_page_timeout: int = int(os.getenv('SCRAPER_PAGE_TIMEOUT_MS', '30000'))
         self.default_navigation_timeout: int = int(os.getenv('SCRAPER_NAVIGATION_TIMEOUT_MS', '60000'))
         self.scrape_max_retries: int = int(os.getenv('SCRAPER_MAX_RETRIES', '2'))
