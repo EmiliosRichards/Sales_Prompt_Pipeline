@@ -20,7 +20,7 @@ Return a single, valid JSON object. Do not include any conversational preamble, 
 
     **Example of bad rationale (DO NOT produce these):**
     *   `"Beide Unternehmen sind innovativ"` (too general)
-    *   `"Sie operieren im gleichen Marktsegment"` (not specific enough)
+    *   `"Sie operieren im gleichen Marktsegment"` (not specific enough because segment is missing)
 
 2.  **Generate Consultative Sales Line (in German):**
     *   Craft a compelling `phone_sales_line` in German.

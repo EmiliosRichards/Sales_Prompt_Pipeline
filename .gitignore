@@ -167,3 +167,6 @@ data_to_be_inputed.xlsx
 old_output_data/
 output_data/
 data/final_80k.csv
+
+cache/
+# Cache files   

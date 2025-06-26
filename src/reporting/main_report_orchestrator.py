@@ -28,7 +28,7 @@ from .report_generator import (
     write_row_attrition_report,
     write_canonical_domain_summary_report,
 )
-from .csv_reporter import write_prospect_analysis_to_csv, write_sales_outreach_report
+from .csv_reporter import write_sales_outreach_report
 
 logger = logging.getLogger(__name__)
 

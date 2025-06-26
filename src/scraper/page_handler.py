@@ -3,6 +3,7 @@ from typing import Optional, Tuple, Any
 from playwright.async_api import Page, TimeoutError as PlaywrightTimeoutError, Error as PlaywrightError
 
 from ..core.config import AppConfig
+from .interaction_handler import InteractionHandler
 
 config_instance = AppConfig()
 logger = logging.getLogger(__name__)
@@ -10,17 +11,15 @@ logger = logging.getLogger(__name__)
 async def fetch_page_content(page: Page, url: str, input_row_id: Any, company_name_or_id: str) -> Tuple[Optional[str], Optional[int]]:
     logger.info(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Navigating to URL: {url}")
     try:
-        response = await page.goto(url, timeout=config_instance.default_navigation_timeout, wait_until='domcontentloaded')
+        response = await page.goto(url, timeout=config_instance.default_navigation_timeout, wait_until='commit')
         if response:
             logger.info(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Navigation to {url} successful. Status: {response.status}")
             if response.ok:
-                if config_instance.scraper_networkidle_timeout_ms > 0:
-                    logger.debug(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Waiting for networkidle on {url} (timeout: {config_instance.scraper_networkidle_timeout_ms}ms)...")
-                    try:
-                        await page.wait_for_load_state('networkidle', timeout=config_instance.scraper_networkidle_timeout_ms)
-                        logger.debug(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Networkidle achieved for {url}.")
-                    except PlaywrightTimeoutError:
-                        logger.info(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Timeout waiting for networkidle on {url} after {config_instance.scraper_networkidle_timeout_ms}ms. Proceeding with current DOM content.")
+                # After a successful navigation, handle interactions like cookie banners
+                interaction_handler = InteractionHandler(page, config_instance)
+                await interaction_handler.handle_interactions()
+
+                # The waiting logic has been removed to maximize speed.
                 content = await page.content()
                 logger.debug(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Content fetched successfully for {url}.")
                 return content, response.status

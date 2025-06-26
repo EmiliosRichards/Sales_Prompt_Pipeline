@@ -138,25 +138,41 @@ SALES_PROMPT_LANGUAGE="de"
 # These are optional. If left blank, the default paths from the AppConfig class will be used.
 PROMPT_PATH_GERMAN_PARTNER_MATCHING=""
 PROMPT_PATH_GERMAN_SALES_PITCH_GENERATION=""
-
 # === Advanced Scraper Features ===
-# Enable/disable caching of scrape results
-CACHING_ENABLED="True"
-CACHE_DIR="cache"
 
-# Enable/disable the use of proxies for scraping
-PROXY_ENABLED="False"
-# Comma-separated list of proxies, e.g., "http://user:pass@host:port,http://user2:pass2@host2:port2"
-PROXY_LIST=""
-# Proxy rotation strategy: 'random' or 'sequential'
-PROXY_ROTATION_STRATEGY="random"
-PROXY_HEALTH_CHECK_ENABLED="True"
-PROXY_COOLDOWN_SECONDS="300"
+# --- Caching Settings ---
+# Enable or disable the file-based cache for scraping results.
+CACHING_ENABLED=True
+# The directory where cache files will be stored.
+CACHE_DIR=cache
 
-# Enable/disable the handler for cookie banners and other pop-ups
-INTERACTION_HANDLER_ENABLED="True"
-# Comma-separated CSS selectors to identify clickable elements
-INTERACTION_SELECTORS="button[id*=\"accept\"],button[id*=\"agree\"],button[id*=\"consent\"],button[id*=\"cookie\"]"
-# Comma-separated text content to identify clickable elements
-INTERACTION_TEXT_QUERIES="accept,allow,agree,consent,confirm,continue,ok,got it,close,accept all,allow all,i agree,i accept,i consent,yes, i agree,accept cookies,allow cookies,accept all cookies,allow all cookies,save and exit,save settings,save preferences,accept & close,alle cookies akzeptieren,cookies zulassen,ich stimme zu,zustimmen,einverstanden,ja,akzeptieren,alles akzeptieren,alle akzeptieren,alle cookies erlauben,akzeptieren und fortfahren,speichern & akzeptieren,cookies aktivieren,alle annehmen,akzeptiere,erlauben,verstanden,bestätigen,weiter,fortsetzen,schließen,cookies akzeptieren,cookies erlauben,alle cookies annehmen,ich akzeptiere,ja, ich stimme zu,speichern und schließen,einstellungen speichern,präferenzen speichern,akzeptieren & schließen"
-INTERACTION_HANDLER_TIMEOUT_SECONDS="5"
+# --- Proxy Management ---
+# Enable or disable the use of proxies for IP rotation.
+PROXY_ENABLED=False
+# Provide a comma-separated list of your proxy URLs.
+# Example: PROXY_LIST="http://user:pass@proxy1.com:8080,http://user:pass@proxy2.com:8080"
+PROXY_LIST=
+# Choose the proxy rotation strategy: 'random', 'sequential', or 'rotate_on_failure'.
+PROXY_ROTATION_STRATEGY=random
+# Enable or disable automatic health checks for proxies.
+PROXY_HEALTH_CHECK_ENABLED=True
+# Set the cooldown period in seconds for a failing proxy before it's retried.
+PROXY_COOLDOWN_SECONDS=300
+
+# --- Interaction Handling ---
+# Enable or disable the automatic handling of modals (cookie banners, pop-ups).
+INTERACTION_HANDLER_ENABLED=True
+# Comma-separated list of CSS selectors for elements to click.
+INTERACTION_SELECTORS="button[id*='accept'],button[id*='agree'],button[id*='consent'],button[id*='cookie']"
+# Comma-separated list of text queries to find on clickable elements.
+INTERACTION_TEXT_QUERIES="Accept all,Agree,Consent,I agree"
+# Timeout in seconds for the interaction handler loop.
+INTERACTION_HANDLER_TIMEOUT_SECONDS=5
+
+# --- CAPTCHA Solving ---
+# Enable or disable third-party CAPTCHA solving.
+CAPTCHA_SOLVER_ENABLED=False
+# Specify the CAPTCHA solving service provider (e.g., '2captcha').
+CAPTCHA_PROVIDER=2captcha
+# Your API key for the chosen CAPTCHA solving service.
+CAPTCHA_API_KEY=

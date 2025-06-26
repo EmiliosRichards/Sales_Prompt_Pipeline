@@ -217,6 +217,10 @@ def main() -> None:
         # All report generation logic is now encapsulated in main_report_orchestrator
         # generate_all_reports will need to be updated to handle all_match_outputs
         if df is not None:
+            # Dynamically find the original phone column name from the active profile
+            active_profile = app_config.INPUT_COLUMN_PROFILES.get(app_config.input_file_profile_name, {})
+            original_phone_col_name = next((k for k, v in active_profile.items() if v == "PhoneNumber"), None)
+
             generate_all_reports(
                 df=df,
                 app_config=app_config,
@@ -228,7 +232,7 @@ def main() -> None:
                 input_to_canonical_map=input_to_canonical_map,
                 all_golden_partner_match_outputs=all_match_outputs, # Corrected parameter name and position
                 true_base_scraper_status=true_base_scraper_status,
-                original_phone_col_name_for_profile=None,
+                original_phone_col_name_for_profile=original_phone_col_name,
                 original_input_file_path=input_file_path_abs,
                 sales_prompt_path=None
             )

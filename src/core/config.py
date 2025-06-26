@@ -105,7 +105,6 @@ class AppConfig:
         prompt_path_summarization (str): Path to the (old) summarization prompt.
         prompt_path_homepage_context (str): Path to homepage context prompt.
         PROMPT_PATH_ATTRIBUTE_EXTRACTOR (str): Path to attribute extractor prompt.
-        PROMPT_PATH_COMPARISON_SALES_LINE (str): Path to comparison sales line prompt.
         MAX_GOLDEN_PARTNERS_IN_PROMPT (int): Max golden partners to include in prompts.
         extraction_profile (str): Current extraction profile to use (e.g., "minimal").
 
@@ -116,7 +115,6 @@ class AppConfig:
         input_file_profile_name (str): Name of the input column mapping profile.
         INPUT_COLUMN_PROFILES (dict): Available input column mapping profiles.
         output_excel_file_name_template (str): Template for the main summary report Excel file.
-        PROSPECT_ANALYSIS_CSV_FILENAME_TEMPLATE (str): Template for prospect analysis CSV.
         skip_rows_config (Optional[int]): Rows to skip from input file start (0-indexed).
         nrows_config (Optional[int]): Rows to read after skipping (None for all).
         consecutive_empty_rows_to_stop (int): Consecutive empty rows to stop processing.
@@ -145,9 +143,9 @@ class AppConfig:
             "Firma Vollname": "CompanyName",      # Maps to existing CompanyName
             "Homepage": "GivenURL",               # CRITICAL: Maps to existing GivenURL
             "Beschreibung": "Description",        # Maps to existing Description
-            "Kategorie": "Industry"               # Maps to a general industry field
+            "Kategorie": "Industry",              # Maps to a general industry field
+            "Number": "PhoneNumber"               # Maps the new phone number column
             # Other columns like 'Strasse', 'PLZ', 'Ort', 'Land' can be added if needed later.
-            # No phone number column specified in the new prospect input structure for direct mapping.
         },
         "ManauvKlaus": {
             "firma": "CompanyName",
@@ -235,6 +233,26 @@ class AppConfig:
         self.max_depth_internal_links: int = int(os.getenv('MAX_DEPTH_INTERNAL_LINKS', '1'))
         scraper_timeout_str = os.getenv('SCRAPER_NETWORKIDLE_TIMEOUT_MS', '3000').split('#')[0].strip().strip('\'"')
         self.scraper_networkidle_timeout_ms: int = int(scraper_timeout_str)
+
+        # --- Caching ---
+        self.caching_enabled: bool = os.getenv('CACHING_ENABLED', 'True').lower() == 'true'
+        self.cache_dir: str = os.getenv('CACHE_DIR', 'cache')
+
+        # --- Proxy Management ---
+        self.proxy_enabled: bool = os.getenv('PROXY_ENABLED', 'False').lower() == 'true'
+        self.proxy_list: List[str] = [p.strip() for p in os.getenv('PROXY_LIST', '').split(',') if p.strip()]
+        self.proxy_rotation_strategy: str = os.getenv('PROXY_ROTATION_STRATEGY', 'random') # 'random', 'sequential', 'rotate_on_failure'
+        self.proxy_health_check_enabled: bool = os.getenv('PROXY_HEALTH_CHECK_ENABLED', 'True').lower() == 'true'
+        self.proxy_cooldown_seconds: int = int(os.getenv('PROXY_COOLDOWN_SECONDS', '300'))
+
+        # --- Interaction Handling ---
+        self.interaction_handler_enabled: bool = os.getenv('INTERACTION_HANDLER_ENABLED', 'True').lower() == 'true'
+        interaction_selectors_str: str = os.getenv('INTERACTION_SELECTORS', 'button[id*="accept"],button[id*="agree"],button[id*="consent"],button[id*="cookie"],button[class*="accept"],button[class*="close"],[aria-label*="close"]')
+        self.interaction_selectors: List[str] = [s.strip() for s in interaction_selectors_str.split(',') if s.strip()]
+        interaction_text_queries_str: str = os.getenv('INTERACTION_TEXT_QUERIES', 'Accept all,Agree,Consent,I agree,Alle akzeptieren,accept all cookies,Accept,a *c *c *e *p *t,Ich akzeptiere alle')
+        self.interaction_text_queries: List[str] = [q.strip() for q in interaction_text_queries_str.split(',') if q.strip()]
+        self.interaction_handler_max_passes: int = int(os.getenv('INTERACTION_HANDLER_MAX_PASSES', '2'))
+        self.interaction_handler_visibility_timeout_ms: int = int(os.getenv('INTERACTION_HANDLER_VISIBILITY_TIMEOUT_MS', '200'))
  
         # --- Output Configuration ---
         self.output_base_dir: str = os.getenv('OUTPUT_BASE_DIR', 'output_data')  # Relative to project root
@@ -247,6 +265,7 @@ class AppConfig:
         # --- Robots.txt Handling ---
         self.respect_robots_txt: bool = os.getenv('RESPECT_ROBOTS_TXT', 'True').lower() == 'true'
         self.robots_txt_user_agent: str = os.getenv('ROBOTS_TXT_USER_AGENT', '*')
+        self.robots_txt_timeout_seconds: int = int(os.getenv('ROBOTS_TXT_TIMEOUT_SECONDS', '3'))
 
         # --- LLM Configuration ---
         self.gemini_api_key: Optional[str] = os.getenv('GEMINI_API_KEY')
@@ -322,7 +341,6 @@ class AppConfig:
             # English prompts would be defined here if they existed
             self.PROMPT_PATH_GERMAN_PARTNER_MATCHING: str = get_clean_path('PROMPT_PATH_GERMAN_PARTNER_MATCHING', 'prompts/german_partner_matching_prompt.txt')
             self.PROMPT_PATH_GERMAN_SALES_PITCH_GENERATION: str = get_clean_path('PROMPT_PATH_GERMAN_SALES_PITCH_GENERATION', 'prompts/german_sales_pitch_generation_prompt.txt')
-            self.PROMPT_PATH_COMPARISON_SALES_LINE: str = get_clean_path('PROMPT_PATH_COMPARISON_SALES_LINE', 'prompts/comparison_sales_line_prompt.txt')
         self.MAX_GOLDEN_PARTNERS_IN_PROMPT: int = int(os.getenv('MAX_GOLDEN_PARTNERS_IN_PROMPT', '10'))
  
         # --- URL Probing Configuration ---
@@ -334,7 +352,6 @@ class AppConfig:
         self.input_excel_file_path: str = os.getenv('INPUT_EXCEL_FILE_PATH', 'data_to_be_inputed.xlsx')  # Relative to project root
         self.input_file_profile_name: str = os.getenv("INPUT_FILE_PROFILE_NAME", "default")
         self.output_excel_file_name_template: str = os.getenv('OUTPUT_EXCEL_FILE_NAME_TEMPLATE', 'Pipeline_Summary_Report_{run_id}.xlsx')
-        self.PROSPECT_ANALYSIS_CSV_FILENAME_TEMPLATE: str = os.getenv('PROSPECT_ANALYSIS_CSV_FILENAME_TEMPLATE', 'ProspectAnalysisReport_{run_id}.csv')
         self.PATH_TO_GOLDEN_PARTNERS_DATA: str = get_clean_path('PATH_TO_GOLDEN_PARTNERS_DATA', 'data/kgs_001_ER47_20250617.xlsx')
 
         # --- Row Processing Range Configuration ---

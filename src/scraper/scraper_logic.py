@@ -21,6 +21,8 @@ from ..core.logging_config import setup_logging # For main app setup, or test se
 # Import refactored functions
 from .scraper_utils import normalize_url, get_safe_filename, extract_text_from_html, find_internal_links, _classify_page_type, validate_link_status
 from .page_handler import fetch_page_content
+from .caching import generate_cache_key, load_from_cache, save_to_cache
+from .proxy_manager import ProxyManager
 
 # Instantiate AppConfig for scraper_logic
 config_instance = AppConfig()
@@ -38,7 +40,7 @@ async def is_allowed_by_robots(url: str, client: httpx.AsyncClient, input_row_id
     rp = RobotFileParser()
     try:
         logger.debug(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Fetching robots.txt from: {robots_url}")
-        response = await client.get(robots_url, timeout=10, headers={'User-Agent': config_instance.robots_txt_user_agent})
+        response = await client.get(robots_url, timeout=config_instance.robots_txt_timeout_seconds, headers={'User-Agent': config_instance.robots_txt_user_agent})
         if response.status_code == 200:
             logger.debug(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Successfully fetched robots.txt for {url}, status: {response.status_code}")
             rp.parse(response.text.splitlines())
@@ -71,7 +73,7 @@ async def _perform_scrape_for_entry_point(
     company_name_or_id: str,
     globally_processed_urls: Set[str], # Shared across all entry point attempts for the original given_url
     input_row_id: Any
-) -> Tuple[List[Tuple[str, str, str]], str, Optional[str], str]:
+) -> Tuple[List[Dict[str, str]], str, Optional[str], str]:
     """
     Core scraping logic for a single entry point URL and its children.
     This function contains the main `while urls_to_scrape` loop.
@@ -93,7 +95,7 @@ async def _perform_scrape_for_entry_point(
         for_url=False,
         max_len=config_instance.filename_company_name_max_len
     )
-    scraped_page_details_for_this_entry: List[Tuple[str, str, str]] = []
+    scraped_page_details_for_this_entry: List[Dict[str, str]] = []
     collected_texts_for_summary: List[str] = []
     priority_pages_collected_count = 0
     # Define priority page types for summary collection
@@ -178,7 +180,11 @@ async def _perform_scrape_for_entry_point(
                     with open(cleaned_page_filepath, 'w', encoding='utf-8') as f_cleaned_page:
                         f_cleaned_page.write(cleaned_text)
                     page_type = _classify_page_type(final_landed_url_normalized, config_instance)
-                    scraped_page_details_for_this_entry.append((cleaned_page_filepath, final_landed_url_normalized, page_type))
+                    scraped_page_details_for_this_entry.append({
+                        "filepath": cleaned_page_filepath,
+                        "url": final_landed_url_normalized,
+                        "page_type": page_type
+                    })
 
                     # New logic: Collect text for summary
                     if page_type in priority_page_types_for_summary and \
@@ -264,9 +270,28 @@ async def scrape_website(
     company_name_or_id: str,
     globally_processed_urls: Set[str],
     input_row_id: Any
-) -> Tuple[List[Tuple[str, str, str]], str, Optional[str], Optional[str]]: # Added Optional[str] for summary text
+) -> Tuple[List[Dict[str, str]], str, Optional[str], Optional[str]]: # Added Optional[str] for summary text
     start_time = time.time()
-    logger.info(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Starting scrape_website for original URL: {given_url}")
+    log_identifier = f"[RowID: {input_row_id}, Company: {company_name_or_id}]"
+    logger.info(f"{log_identifier} Starting scrape_website for original URL: {given_url}")
+
+    # --- Caching Logic: Check before scraping ---
+    if config_instance.caching_enabled:
+        cache_key = generate_cache_key(given_url)
+        cached_results = load_from_cache(cache_key, config_instance.cache_dir)
+        if cached_results is not None:
+            logger.info(f"{log_identifier} Scrape data for '{given_url}' loaded from cache.")
+            # Reconstruct the full tuple that the pipeline expects
+            status = "Success"  # Treat cache hit as Success
+            # Assuming cached_results is a list of dicts, where each dict is a page
+            # and the summary_text is stored with the first page's data or separately.
+            # Based on the save logic, it seems it's not stored. Let's assume it is for now.
+            canonical_url = cached_results[0].get("url") if cached_results else None
+            summary_text = ""
+            if cached_results and isinstance(cached_results[0], dict):
+                summary_text = cached_results[0].get("summary_text", "")
+
+            return cached_results, status, canonical_url, summary_text
 
     normalized_given_url = normalize_url(given_url)
     logger.info(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Original: '{given_url}', Normalized to: '{normalized_given_url}'")
@@ -296,10 +321,20 @@ async def scrape_website(
     async with async_playwright() as p, httpx.AsyncClient(follow_redirects=True, verify=False) as http_client_for_validation:
         browser = None
         try:
-            browser = await p.chromium.launch(
-                headless=False,
-                args=['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
-            )
+            launch_options: Dict[str, Any] = {'headless': False}
+            proxy_manager = None
+            proxy_to_use = None
+
+            if config_instance.proxy_enabled:
+                proxy_manager = ProxyManager(config_instance)
+                proxy_to_use = proxy_manager.get_proxy()
+                if proxy_to_use:
+                    logger.info(f"Using proxy: {proxy_to_use}")
+                    launch_options['proxy'] = {'server': proxy_to_use}
+                else:
+                    logger.warning("Proxy is enabled, but no healthy proxy could be obtained. Proceeding without proxy.")
+
+            browser = await p.chromium.launch(**launch_options)
             # Create one context to be reused by _perform_scrape_for_entry_point attempts
             # This means cookies/state might persist across fallback attempts for the same original given_url.
             # If strict isolation is needed, context creation would move inside the loop.
@@ -326,6 +361,13 @@ async def scrape_website(
                 if status != "DNSError": # Any success or non-DNS error is final for this given_url
                     logger.info(f"[RowID: {input_row_id}, Company: {company_name_or_id}] Entry point {current_entry_url_to_attempt} resulted in non-DNS status: {status}. Finalizing.")
                     if browser.is_connected(): await browser.close()
+                    # --- Caching Logic: Save after scraping ---
+                    if config_instance.caching_enabled and status == "Success":
+                        cache_key = generate_cache_key(given_url)
+                        # Add summary text to the data being cached
+                        if details:
+                            details[0]['summary_text'] = collected_summary_text
+                        save_to_cache(cache_key, details, config_instance.cache_dir)
                     return details, status, canonical_landed, collected_summary_text # Propagate summary text
                 
                 # It was a DNSError for current_entry_url_to_attempt

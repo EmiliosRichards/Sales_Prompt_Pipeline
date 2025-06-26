@@ -2,7 +2,7 @@
 pandas
 pandas-stubs
 phonenumbers
-dotenv
+python-dotenv
 playwright
 beautifulsoup4
 tldextract

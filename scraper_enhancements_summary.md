@@ -1,28 +1,40 @@
-# Summary of Scraper Enhancements
+# Scraper Enhancement Plan (V2)
 
-This document outlines the key enhancements made to the web scraping module to improve its robustness and reliability.
+This document outlines the revised plan to upgrade the existing scraper (`src/scraper/`) with key features from the `base_scraper` reference implementation. The goal is to improve scraper success rates and efficiency while minimizing risk and preserving existing functionality.
 
-### 1. User-Agent Rotation
+### 1. Session Management: Fresh Sessions Confirmed
 
-To prevent websites from identifying the scraper as a bot, we implemented User-Agent rotation. This makes each request appear as if it's coming from a different browser.
+This plan **maintains the current behavior of using a fresh, isolated browser session for each top-level website scrape.** The new features (cookie handling, proxies) will operate *within* this fresh session. This ensures there is no data leakage between different company scrapes and fulfills the requirement for stateless runs.
 
-*   **Configuration**:
-    *   Added a `SCRAPER_USER_AGENTS` variable to the `.env` and `.env.example` files. This variable holds a comma-separated list of User-Agent strings.
-*   **Implementation**:
-    *   The scraper logic in `src/scraper/scraper_logic.py` was updated to randomly select a User-Agent from this list for each scraping session.
+### 2. Create New, Isolated Modules
 
-### 2. Custom Request Headers
+To avoid disrupting the existing scraper, the new functionality will be added in separate, dedicated files within the current `src/scraper/` directory.
 
-To further mimic the behavior of a real browser, we added the ability to send custom HTTP headers with each request.
+*   **New File:** `src/scraper/interaction_handler.py`
+    *   **Content:** This file will contain the `InteractionHandler` class from `base_scraper`. Its purpose is to programmatically find and click cookie consent banners.
+*   **New File:** `src/scraper/proxy_manager.py`
+    *   **Content:** This file will contain the `ProxyManager` class from `base_scraper`. It will manage a list of proxies, handle rotation, and perform health checks.
+*   **New File (Added):** `src/scraper/caching.py`
+    *   **Content:** This file will contain the caching functions from `base_scraper`. It will handle saving successful scrape results to disk and loading them to avoid re-scraping.
 
-*   **Configuration**:
-    *   Added a `SCRAPER_DEFAULT_HEADERS` variable to the `.env` and `.env.example` files. This variable holds a JSON string of key-value pairs for the headers (e.g., `Accept-Language`, `Referer`).
-*   **Implementation**:
-    *   The scraper now parses this JSON string and applies these headers to every request it makes.
+### 3. Unify Configuration
 
-### 3. Headed Browser Mode (for Debugging)
+All new settings will be integrated into the main application's configuration system.
 
-To bypass more advanced anti-bot measures, we enabled the option to run the scraper in "headed" mode, which opens a visible browser window.
+*   **File to Modify:** `src/core/config.py`
+    *   **Action:** Add new attributes to the `AppConfig` class for the interaction handler, proxy manager, and **caching** (e.g., `PROXY_ENABLED`, `INTERACTION_SELECTORS`, `CACHING_ENABLED`, `CACHE_DIR`).
+*   **Files to Modify:** `.env` and `.env.example`
+    *   **Action:** Add the corresponding environment variables to these files so they can be easily configured.
 
-*   **Implementation**:
-    *   The `headless` parameter in `src/scraper/scraper_logic.py` was set to `False`. While this didn't solve the issue with the most difficult site, it remains a valuable debugging tool and can be effective against less sophisticated anti-scraping techniques.
+### 4. Integrate Features into Existing Logic
+
+The new modules will be carefully integrated into the current scraper's workflow.
+
+*   **File to Modify:** `src/scraper/scraper_logic.py`
+    *   **Action:** The `scrape_website` function will be updated with the following logic:
+        1.  **Caching Check:** Before any scraping, check if a valid result for the URL exists in the cache. If so, return the cached data immediately.
+        2.  **Proxy Initialization:** Initialize the `ProxyManager` and get a proxy for the Playwright browser, if enabled.
+        3.  **Scraping Execution:** Perform the scrape as usual.
+        4.  **Caching Save:** If the scrape is successful, save the results to the cache before returning them.
+*   **File to Modify:** `src/scraper/page_handler.py`
+    *   **Action:** The `fetch_page_content` function will be modified. After a page successfully loads, it will call the new `InteractionHandler` to handle any cookie banners before proceeding to extract the page content.
